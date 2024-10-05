@@ -10,6 +10,7 @@ body {
   background-color: #000;
   color: #fff;
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
 /* Hero Section */
@@ -21,6 +22,7 @@ body {
   align-items: center;
   text-align: center;
   color: #fff;
+  overflow: hidden;
 }
 
 .background-video {
@@ -30,7 +32,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0; /* Ensure it is below the overlay */
+  z-index: 0;
 }
 
 .overlay {
@@ -39,8 +41,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to increase/decrease opacity */
-  z-index: 1; /* Ensure it sits above the video but below the content */
+  background-color: rgba(0, 0, 0, 0.6); /* Increase transparency */
+  backdrop-filter: blur(0.8px); /* Adding blur to make text stand out */
+  z-index: 1;
 }
 
 .content {
@@ -51,11 +54,11 @@ body {
 }
 
 .content .headline {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 20px;
   color: #f8d71c;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow for impact */
 }
 
 #cta-button {
@@ -63,16 +66,18 @@ body {
   background: linear-gradient(90deg, #28a745, #00c6ff);
   border: none;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s;
+  opacity: 0.9; /* Slight transparency */
 }
 
 #cta-button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #00c6ff, #28a745);
+  opacity: 1; /* Fully opaque on hover */
 }
 
 .scroll-down {
@@ -86,207 +91,315 @@ body {
   border-radius: 50%;
   animation: bounce 2s infinite;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Introduction to SDG 13 */
-.intro-sdg13 {
-  padding: 80px 20px;
-  background-color: #222;
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px); /* Blurred background for nav */
+  z-index: 1000;
+  overflow: hidden; /* Prevent overflow */
+  flex-wrap: nowrap; /* Ensure items stay in one line */
+}
+
+/* Ensure links don't exceed available space */
+.navbar a {
+  flex: 1; /* Allow links to grow and fill space */
+  text-align: center; /* Center-align text */
+}
+.logo a {
+  color: #f8d71c;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
   color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, opacity 0.3s;
+  opacity: 0.8;
+}
+
+.nav-links a:hover {
+  color: #f8d71c;
+  opacity: 1;
+}
+
+/* Problem Section */
+.problem-section {
+  padding: 80px 20px;
+  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Blur effect */
+}
+
+.problem-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #f8d71c;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.problem-list {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.problem-list li {
+  font-size: 1.3rem;
+  margin: 15px 0;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.statistic {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.statistic h3 {
+  color: #f8d71c;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Solutions Section */
+.solutions-section {
+  padding: 80px 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.solutions-heading {
+  font-size: 2.8rem;
+  color: #f8d71c;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.solutions-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.solutions-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Increase gap between solution cards */
+}
+
+.solution-card {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-10px); /* Lift on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.solution-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.solution-title {
+  color: #f8d71c;
+  padding: 20px;
+  font-size: 1.5rem;
   text-align: center;
 }
 
-.intro-sdg13 h2 {
-  font-size: 2.5rem;
-  color: #f8d71c;
-  margin-bottom: 20px;
+.solution-description {
+  padding: 0 20px 30px;
+  text-align: center;
 }
 
-.intro-sdg13 p {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
+/* Map Section */
+.map-section {
+  padding: 80px 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
 }
 
-.learn-more {
-  font-size: 1.2rem;
-  color: #28a745;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
+#map {
+  height: 450px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.learn-more:hover {
-  border-color: #28a745;
-}
-
-/* NASA Tools and Data Section */
+/* NASA Tools Section */
 .nasa-tools {
   padding: 80px 20px;
-  background-color: #f0f0f0;
-  color: #333;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
-.nasa-tools h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #1d6fa5;
-}
-
-.nasa-tools h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #005288;
-}
-
-.nasa-tools p {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
-  color: #444;
+.nasa-tool-frame {
+  width: 100%;
+  height: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nasa-link {
-  font-size: 1.2rem;
-  color: #0066cc;
+  color: #f8d71c;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
 }
 
 .nasa-link:hover {
-  border-color: #0066cc;
+  text-decoration: underline;
 }
-
 .nasa-tool-frame,
 .nasa-map-frame {
-  width: 80%;
-  height: 400px;
+  width: 100%;
+  height: 800px;
   border: none;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 /* Weather Section */
 .weather-section {
   padding: 80px 20px;
-  background-color: #eaeaea;
-  color: #333;
+  background-color: rgba(0, 0, 0, 0.85);
   text-align: center;
 }
 
-.weather-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #1d6fa5;
-}
-
-.weather-section input {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+#city-input {
+  padding: 15px;
+  font-size: 1.1rem;
   margin-right: 10px;
+  border-radius: 8px;
+  border: 2px solid #f8d71c;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-.weather-section button {
-  padding: 10px 20px;
-  background-color: #28a745;
+#weather-button {
+  padding: 12px 25px;
+  background-color: #f8d71c;
   border: none;
-  color: white;
+  color: #000;
+  font-size: 1.1rem;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease;
 }
 
-.weather-section button:hover {
-  background-color: #218838;
+#weather-button:hover {
+  background-color: #e6c121; /* Slightly darker shade on hover */
 }
 
 #weather-container {
   margin-top: 20px;
 }
 
-/* Astronomy Picture of the Day Section */
-.apod-section {
-  padding: 80px 20px;
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-}
-
-.apod-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #f8d71c;
-}
-
 /* Feedback Form Section */
 .feedback-form {
   padding: 80px 20px;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: rgba(0, 0, 0, 0.85);
   text-align: center;
 }
 
-.feedback-form h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #1d6fa5;
-}
-
-.feedback-form form {
-  display: inline-block;
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
+#form {
+  max-width: 500px;
   margin: 0 auto;
+  text-align: left;
 }
 
-.feedback-form label {
+label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #f8d71c;
 }
 
-.feedback-form input,
-.feedback-form textarea {
+input,
+textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #f8d71c;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-.feedback-form button {
+button[type="submit"] {
   padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #f8d71c;
   border: none;
-  color: white;
+  color: #000;
+  font-size: 1.1rem;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease;
 }
 
-.feedback-form button:hover {
-  background-color: #218838;
+button[type="submit"]:hover {
+  background-color: #e6c121;
 }
 
 /* Footer */
 footer {
-  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  background-color: #1d1d1d;
-  color: #fff;
+  padding: 15px 0;
+  color: #f8d71c;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -295,9 +408,48 @@ footer {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   60% {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh; /* Adjust hero section height for mobile */
+  }
+  
+  .content .headline {
+    font-size: 2.5rem; /* Adjust font size */
+  }
+  
+  .navbar {
+    padding: 10px; /* Smaller padding */
+  }
+
+  .navbar a {
+    font-size: 14px; /* Adjust font size */
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+  }
+  
+  .solution-card {
+    width: 90%; /* Full width on mobile */
+  }
+  
+  .statistics {
+    flex-direction: column; /* Stack statistics vertically */
+  }
+  
+  #map {
+    height: 300px; /* Adjust map height for mobile */
   }
 }
