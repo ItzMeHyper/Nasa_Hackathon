@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Take Action on Climate Change</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <video autoplay muted loop class="background-video">
+      <source src="/src/earth3.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.js
+    </video>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1 class="headline">Take Action on Climate Change Now</h1>
+      <button id="cta-button">Start Learning</button>
+    </div>
+    <div class="scroll-down" aria-label="Scroll down"></div>
+  </div>
+
+  <!-- Introduction to SDG 13 -->
+  <section class="intro-sdg13">
+    <h2>What is SDG 13?</h2>
+    <p>SDG 13 focuses on urgent actions to combat climate change and its impacts, requiring everyone to play their part to protect our planet and secure a sustainable future.</p>
+    <a href="#nasa-tools" class="learn-more">Learn more about SDG 13</a>
+  </section>
+
+  <!-- NASA Tools and Data Section -->
+  <section class="nasa-tools" id="nasa-tools">
+    <h2>NASA Tools and Data</h2>
+
+    <!-- NASA Earth Observation Tools -->
+    <h3>Explore NASA's Earth Observation Tools</h3>
+    <p>Explore satellite imagery and data from NASA tools like Worldview and MODIS.</p>
+    <iframe src="https://worldview.earthdata.nasa.gov/" class="nasa-tool-frame" title="NASA Worldview"></iframe>
+
+    <!-- NASA Vital Signs of the Planet -->
+    <h3>Real-Time Climate Data</h3>
+    <p>View real-time climate data such as CO2 levels, temperature changes, and sea-level rise.</p>
+    <a href="https://climate.nasa.gov/" target="_blank" class="nasa-link">Visit NASA's Vital Signs of the Planet</a>
+
+    <!-- NASA GLOBE Observer -->
+    <h3>NASA GLOBE Observer</h3>
+    <p>Contribute to citizen science through NASA's GLOBE Observer app by providing data like cloud cover and land conditions.</p>
+    <p>Follow the step-by-step guide below to download and use the app:</p>
+    <ul class="globe-steps">
+      <li>Download the <a href="https://observer.globe.gov/" target="_blank" class="nasa-link">NASA GLOBE Observer app</a> from the App Store or Google Play.</li>
+      <li>Sign up for an account.</li>
+      <li>Start contributing data by observing and recording cloud cover, land conditions, and other important variables.</li>
+    </ul>
+
+    <!-- Interactive Climate Data Map -->
+    <h3>Interactive Climate Data Map</h3>
+    <p>Explore climate data interactively by using the map below:</p>
+    <iframe src="https://climate.nasa.gov/interactives/climate-time-machine" class="nasa-map-frame" title="Interactive Climate Data Map"></iframe>
+  </section>
+
+  <!-- Weather Section -->
+  <section class="weather-section">
+    <h2>Check the Weather</h2>
+    <input type="text" id="city-input" placeholder="Enter city name">
+    <button id="weather-button">Get Weather</button>
+    <div id="weather-container"></div>
+  </section>
+
+  <!-- Astronomy Picture of the Day Section -->
+  <section class="apod-section" id="apod-container">
+    <h2>Astronomy Picture of the Day</h2>
+    <div id="apod-container"></div>
+  </section>
+
+  <!-- Feedback Form Section -->
+  <section class="feedback-form">
+    <h2>Feedback</h2>
+    <form id="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required placeholder="Your name">
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" required placeholder="Your email">
+      
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" required placeholder="Your feedback"></textarea>
+      
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <!-- Footer (Optional) -->
+  <footer>
+    &copy; 2024 Climate Action Initiative. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
