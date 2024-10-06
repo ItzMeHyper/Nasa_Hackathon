@@ -1,5 +1,16 @@
-// Feedback form submission
-document.getElementById('form').addEventListener('submit', function (event) {
+// Fetch user's IP address using ipify API
+function getIPAddress() {
+    return fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => data.ip)
+      .catch(error => {
+        console.error('Error fetching IP address:', error);
+        return 'IP not found'; // Default value if there's an error fetching IP
+      });
+  }
+  
+  // Feedback form submission
+  document.getElementById('form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent default form submission
   
     // Get values from the form fields
@@ -7,12 +18,15 @@ document.getElementById('form').addEventListener('submit', function (event) {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
   
+    // Fetch the user's IP address
+    const ipAddress = await getIPAddress();
+  
     // URL of the Discord Webhook (replace with your Webhook URL)
     const webhookURL = 'https://discord.com/api/webhooks/1292486311491670067/_DvEUrHCzgEEtfROcGZy_pIEe9akufMe7wnWVLLGSLBw38kzeSCbqpsZaK2CLMktr9Hn';
   
     // Prepare the payload for the Discord Webhook
     const payload = {
-      content: `**New Feedback Received**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}`
+      content: `**New Feedback Received**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}\n**IP Address:** ${ipAddress}`
     };
   
     // Send the data to the Discord channel via Webhook
