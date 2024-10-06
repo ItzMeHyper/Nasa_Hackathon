@@ -2,22 +2,6 @@
 const apiKey = 'hPc6uHMELDxnbhOMEY6z1lNRobMIAefbr9b5u0yZ'; // Replace with your API key
 const apodContainer = document.getElementById('apod-container');
 
-async function fetchAPOD() {
-  if (!apiKey) {
-    console.error('API key is missing');
-    return;
-  }
-
-  try {
-    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
-    const data = await response.json();
-    displayAPOD(data);
-  } catch (error) {
-    console.error('Error fetching APOD:', error);
-    apodContainer.innerHTML = '<p>Failed to fetch APOD. Please try again later.</p>';
-  }
-}
-
 function displayAPOD(data) {
   const { title, explanation, url, media_type } = data;
   apodContainer.innerHTML = `
@@ -64,6 +48,21 @@ function displayWeather(data) {
   `;
 }
 
+function toggleDropdown() {
+  const dropdown = document.getElementById('gameDropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+// Close dropdown if clicked outside
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+      const dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].style.display = "none";
+      }
+  }
+}
+
 // Smooth scrolling for the call-to-action button
 document.getElementById("cta-button").addEventListener("click", function () {
   window.scrollTo({
@@ -89,7 +88,6 @@ document.getElementById('form').addEventListener('submit', function (event) {
 });
 
 // Fetch data on page load
-fetchAPOD();
 fetchWeather(defaultCity);
 
 // Weather button functionality
