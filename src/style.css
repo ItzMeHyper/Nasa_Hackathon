@@ -1,0 +1,218 @@
+/* Global Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('black image.jpg') no-repeat center center fixed; /* Set your background image here */
+        background-size: cover; /* Cover the entire background */
+        color: #fff;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    
+
+/* Header Styles with Background Image */
+.header {
+    background: url('/mnt/data/black image.jpg') no-repeat center center/cover; /* Set uploaded image as background */
+    color: white;
+    padding: 50px 20px; /* Adjust padding for better alignment */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    min-height: 110px; /* Adjust height as needed */
+    margin-bottom: 5px; /* Reduce margin below the header */
+}
+
+/* Dark overlay to improve text readability */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(97, 94, 94, 0.6); /* Semi-transparent overlay */
+    z-index: -1; /* Place behind the content */
+}
+
+.header h1.main-title {
+    font-family: 'Impact', sans-serif; /* Change font to Impact */
+    font-size: 3em; /* Increase the font size */
+    margin: 0 0 10px; /* Reduced bottom margin to shorten space */
+    letter-spacing: 2px; /* Optional: Add spacing between letters */
+    color: #FFD700; /* Optional: Change text color */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Decreased shadow for better readability */
+}
+
+/* Navigation Styles */
+.header nav {
+    margin-top: 10px;
+}
+
+.header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.header nav a {
+    color: #fff; /* White text for links */
+    text-decoration: none;
+    font-size: 1.2em; /* Larger font size */
+    padding: 10px 20px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for links */
+.header nav a:hover {
+    text-decoration: none;
+    background-color: #FFD700; /* Yellow background on hover */
+    color: #000; /* Change text color to black */
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3); /* Reduced glow/shadow */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Content Section */
+.content {
+    max-width: 800px;
+    margin: auto;
+    padding: 10px; /* Reduced padding for content */
+}
+
+.section {
+    background-color: rgba(163, 158, 158, 0.827); /* Semi-transparent background */
+    padding: 20px;
+    margin-bottom: 10px; /* Reduced margin-bottom to shorten space between sections */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Goal Number Styles */
+.goal-number {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #FFD700; /* Yellow color */
+    border: 2px solid #FFD700; /* Yellow border */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glowing light */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.goal-number:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
+    transform: scale(1.1); /* Slightly larger */
+}
+
+/* Goal Name (h2) Styles */
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #FFD700; /* Yellow underline */
+    padding-bottom: 5px;
+    font-weight: 700; /* Bold font */
+    color: #FFD700; /* Yellow color */
+    border: 2px solid #FFD700;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glow */
+}
+
+.section h2:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
+    transform: scale(1.1); /* Slightly larger */
+    text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.5); /* Decreased shadow */
+}
+
+/* Description Styles */
+.section p {
+    font-size: 1.1em;
+    color: #FFD700; /* Yellow text */
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.section p:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
+    transform: scale(1.05);
+}
+
+/* Image Styles */
+.goal-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goal-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Reduced shadow effect */
+}
+
+/* Button Styles */
+.next-goal {
+    background-color: #FFD700; /* Yellow background */
+    color: #000; /* Black text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px; /* Add space above the button */
+}
+
+.next-goal:hover {
+    background-color: #FFC107; /* Slightly darker yellow */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Info Button Styles */
+.info-button {
+    display: inline-block; /* Ensure it's treated as a block for padding */
+    background-color: #FFD700; /* Yellow background */
+    color: #000; /* Black text */
+    text-decoration: none; /* Remove underline for link */
+    padding: 10px 20px; /* Add padding for clickable area */
+    font-size: 1.2em; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    margin-top: 15px; /* Space above the button */
+}
+
+/* Hover effect for info button */
+.info-button:hover {
+    background-color: #FFC107; /* Slightly darker yellow */
+    color: #fff; /* Change text color to white */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5); /* Glow effect on hover */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .header nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
