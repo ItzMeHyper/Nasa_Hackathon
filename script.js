@@ -48,6 +48,7 @@ function displayWeather(data) {
   `;
 }
 
+
 function toggleDropdown() {
   const dropdown = document.getElementById('gameDropdown');
   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
