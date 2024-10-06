@@ -31,12 +31,13 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#problem">The Problem</a></li>
           <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#map">Map</a></li>
           <li><a href="#involved">Get Involved</a></li>
           <li><a href="#nasa-tools">NASA Tools</a></li>
           <li><a href="#donate" class="donate-btn">Donate</a></li>
         </ul>
       </nav>
-      <div class="content">
+      <div class="content" id ="home">
         <h1 class="headline">Take Action on Climate Change Now</h1>
         <button id="cta-button">Start Learning</button>
       </div>
@@ -239,7 +240,7 @@
        var marker = L.marker([9.5, 76.8]).addTo(map);
        marker
          .bindPopup(
-           "<b>Welcome to the Climate Map!</b><br>Explore climate data here."
+           "<b>Welcome to the Climate Map!</b><br>You are here."
          )
          .openPopup();
      </script>

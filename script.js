@@ -53,9 +53,9 @@ document.getElementById("cta-button").addEventListener("click", function () {
 });
 
 // Scroll down arrow functionality
-document.querySelector('.scroll-down').addEventListener('click', function () {
+document.getElementById("cta-button").addEventListener("click", function () {
   window.scrollTo({
-    top: document.querySelector('.intro-sdg13').offsetTop,
+    top: document.querySelector('#problem').offsetTop,
     behavior: 'smooth'
   });
 });
