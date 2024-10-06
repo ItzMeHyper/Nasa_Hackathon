@@ -535,6 +535,81 @@ body {
   background-color: #f1f100;
 }
 
+
+footer {
+  background-color: #000; /* Black background color */
+  color: #f8d71c; /* Yellow text color */
+  text-align: center;
+  padding: 30px 0; /* Increase padding for better spacing */
+  position: relative; /* Allows for positioning of content */
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align */
+}
+
+.developers {
+  display: flex; /* Change to flex to arrange in one line */
+  justify-content: center; /* Center align items horizontally */
+  margin-top: 10px; /* Space above developers */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.developer {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin: 0 15px; /* Space between each developer */
+  text-decoration: none; /* Remove underline from links */
+  color: #f8d71c; /* Yellow text color for links */
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+  padding: 5px; /* Add some padding around the link */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.developer:hover {
+  color: #fff; /* Change color on hover to white */
+  transform: scale(1.05); /* Slightly enlarge the icon and text on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background effect */
+}
+
+.developer-name {
+  font-weight: bold;
+  margin-left: 10px; /* Space between icon and name */
+}
+
+.developer-icon {
+  font-size: 30px; /* Set the size of the icon */
+  transition: color 0.3s; /* Smooth transition for icon color */
+}
+.developer:hover .developer-icon {
+  color: #fff; /* Change icon color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .developer {
+      margin: 10px; /* Adjust margin for smaller screens */
+      flex: 1 0 45%; /* Allow two developers per row on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .developer {
+      flex: 1 0 100%; /* Allow one developer per row on extra small screens */
+  }
+
+  .developer-icon {
+      font-size: 25px; /* Smaller icon size for small screens */
+  }
+
+  .developer-name {
+      font-size: 14px; /* Smaller text size for names */
+  }
+}
 /* Responsive Design */
 @media (max-width: 1024px) {
   .navbar {

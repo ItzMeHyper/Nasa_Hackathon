@@ -1,735 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Take Action on Climate Change</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-      /* Dropdown styles */
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
 
-      .dropdown-content {
-        display: none;
-        position: relative;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Take Action on Climate Change</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
 
-      .dropdown-content a:hover {
-        background-color: #f1f1f1;
-      }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-      /* Header Styles with Background Image */
-      .header {
-        background: url("/mnt/data/black image.jpg") no-repeat center
-          center/cover; /* Set uploaded image as background */
-        color: white;
-        padding: 50px 20px; /* Adjust padding for better alignment */
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        min-height: 300px; /* Adjust height as needed */
-        margin-bottom: 5px; /* Reduce margin below the header */
-      }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
 
-      /* Dark overlay to improve text readability */
-      .header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-        z-index: -1; /* Place behind the content */
-      }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-      .header h1.main-title {
-        font-family: "Impact", sans-serif; /* Change font to Impact */
-        font-size: 3em; /* Increase the font size */
-        margin: 0 0 10px; /* Reduced bottom margin to shorten space */
-        letter-spacing: 2px; /* Optional: Add spacing between letters */
-        color: #ffd700; /* Optional: Change text color */
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Decreased shadow for better readability */
-      }
+    /* Header Styles with Background Image */
+    .header {
+      background: url("/mnt/data/black image.jpg") no-repeat center center/cover;
+      /* Set uploaded image as background */
+      color: white;
+      padding: 50px 20px;
+      /* Adjust padding for better alignment */
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      min-height: 300px;
+      /* Adjust height as needed */
+      margin-bottom: 5px;
+      /* Reduce margin below the header */
+    }
 
-      /* Navigation Styles */
-      .header nav {
-        margin-top: 10px;
-      }
+    /* Dark overlay to improve text readability */
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      /* Semi-transparent overlay */
+      z-index: -1;
+      /* Place behind the content */
+    }
 
-      .header nav ul {
-        list-style-type: none;
-        padding: 0;
-      }
+    .header h1.main-title {
+      font-family: "Impact", sans-serif;
+      /* Change font to Impact */
+      font-size: 3em;
+      /* Increase the font size */
+      margin: 0 0 10px;
+      /* Reduced bottom margin to shorten space */
+      letter-spacing: 2px;
+      /* Optional: Add spacing between letters */
+      color: #ffd700;
+      /* Optional: Change text color */
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      /* Decreased shadow for better readability */
+    }
 
-      .header nav ul li {
-        display: inline;
-        margin: 0 20px;
-      }
+    /* Navigation Styles */
+    .header nav {
+      margin-top: 10px;
+    }
 
-      .header nav a {
-        color: #fff; /* White text for links */
-        text-decoration: none;
-        font-size: 1.2em; /* Larger font size */
-        padding: 10px 20px; /* Add padding for clickable area */
-        border-radius: 5px; /* Rounded corners */
-        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-      }
+    .header nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-      /* Hover effect for links */
-      .header nav a:hover {
-        text-decoration: none;
-        background-color: #ffd700; /* Yellow background on hover */
-        color: #000; /* Change text color to black */
-        box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3); /* Reduced glow/shadow */
-        transform: scale(1.05); /* Slightly enlarge on hover */
-      }
+    .header nav ul li {
+      display: inline;
+      margin: 0 20px;
+    }
 
-      /* Content Section */
-      .content {
-        max-width: 800px;
-        margin: auto;
-        padding: 10px; /* Reduced padding for content */
-      }
+    .header nav a {
+      color: #fff;
+      /* White text for links */
+      text-decoration: none;
+      font-size: 1.2em;
+      /* Larger font size */
+      padding: 10px 20px;
+      /* Add padding for clickable area */
+      border-radius: 5px;
+      /* Rounded corners */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      /* Smooth transitions */
+    }
 
-      .section {
-        background-color: rgba(
+    /* Hover effect for links */
+    .header nav a:hover {
+      text-decoration: none;
+      background-color: #ffd700;
+      /* Yellow background on hover */
+      color: #000;
+      /* Change text color to black */
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+      /* Reduced glow/shadow */
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 10px;
+      /* Reduced padding for content */
+    }
+
+    .section {
+      background-color: rgba(255,
           255,
           255,
-          255,
-          0.1
-        ); /* Semi-transparent background */
-        padding: 20px;
-        margin-bottom: 10px; /* Reduced margin-bottom to shorten space between sections */
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-      }
+          0.1);
+      /* Semi-transparent background */
+      padding: 20px;
+      margin-bottom: 10px;
+      /* Reduced margin-bottom to shorten space between sections */
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
 
-      /* Goal Number Styles */
-      .goal-number {
-        font-size: 1.5em;
-        font-weight: 400;
-        margin-bottom: 10px;
-        color: #ffd700; /* Yellow color */
-        border: 2px solid #ffd700; /* Yellow border */
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glowing light */
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
-      }
+    /* Goal Number Styles */
+    .goal-number {
+      font-size: 1.5em;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #ffd700;
+      /* Yellow color */
+      border: 2px solid #ffd700;
+      /* Yellow border */
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      /* Reduced glowing light */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
 
-      .goal-number:hover {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
-        transform: scale(1.1); /* Slightly larger */
-      }
+    .goal-number:hover {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      /* Stronger glow on hover */
+      transform: scale(1.1);
+      /* Slightly larger */
+    }
 
-      /* Goal Name (h2) Styles */
-      .section h2 {
-        font-size: 2em;
-        margin-bottom: 5px;
-        border-bottom: 2px solid #ffd700; /* Yellow underline */
-        padding-bottom: 5px;
-        font-weight: 700; /* Bold font */
-        color: #ffd700; /* Yellow color */
-        border: 2px solid #ffd700;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glow */
-      }
+    /* Goal Name (h2) Styles */
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 5px;
+      border-bottom: 2px solid #ffd700;
+      /* Yellow underline */
+      padding-bottom: 5px;
+      font-weight: 700;
+      /* Bold font */
+      color: #ffd700;
+      /* Yellow color */
+      border: 2px solid #ffd700;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      /* Reduced glow */
+    }
 
-      .section h2:hover {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
-        transform: scale(1.1); /* Slightly larger */
-        text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.5); /* Decreased shadow */
-      }
+    .section h2:hover {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      /* Stronger glow on hover */
+      transform: scale(1.1);
+      /* Slightly larger */
+      text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.5);
+      /* Decreased shadow */
+    }
 
-      /* Description Styles */
-      .section p {
-        font-size: 1.1em;
-        color: #ffd700; /* Yellow text */
-        margin: 0;
-        padding: 10px;
-        border: 2px solid #ffd700;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Reduced glow */
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
-      }
+    /* Description Styles */
+    .section p {
+      font-size: 1.1em;
+      color: #ffd700;
+      /* Yellow text */
+      margin: 0;
+      padding: 10px;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      /* Reduced glow */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
 
-      .section p:hover {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Stronger glow on hover */
-        transform: scale(1.05);
-      }
+    .section p:hover {
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      /* Stronger glow on hover */
+      transform: scale(1.05);
+    }
 
-      /* Image Styles */
-      .goal-image {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+    /* Image Styles */
+    .goal-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-      .goal-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Reduced shadow effect */
-      }
+    .goal-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      /* Reduced shadow effect */
+    }
 
-      /* Button Styles */
-      .next-goal {
-        background-color: #ffd700; /* Yellow background */
-        color: #000; /* Black text */
-        border: none;
-        padding: 10px 20px;
-        font-size: 1.2em;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        margin-top: 15px; /* Add space above the button */
-      }
+    /* Button Styles */
+    .next-goal {
+      background-color: #ffd700;
+      /* Yellow background */
+      color: #000;
+      /* Black text */
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+      /* Add space above the button */
+    }
 
-      .next-goal:hover {
-        background-color: #ffc107; /* Slightly darker yellow */
-        transform: scale(1.05); /* Slightly enlarge on hover */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <div class="hero-section">
-      <video autoplay muted loop class="background-video">
-        <source src="/src/earth3.mp4" type="video/mp4" />
-        Your browser does not support HTML5 video.
-      </video>
-      <div class="overlay"></div>
-      <nav class="navbar">
-        <div class="logo">
-          <a href="#">🌍 ClimateCare</a>
+    .next-goal:hover {
+      background-color: #ffc107;
+      /* Slightly darker yellow */
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <video autoplay muted loop class="background-video">
+      <source src="/src/earth3.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">🌍 ClimateCare</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#nasa-tools">NASA Tools</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Fun</a>
+          <div class="dropdown-content" id="gameDropdown">
+            <a href="/Games/ALIEN SAGA/index.html">Alien Saga</a>
+            <!-- Link to the Alien Saga HTML file -->
+            <a href="/Games/BLASTEROIDS/index.html">Blasteroids</a>
+            <!-- Link to the Blasteroids HTML file -->
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="content" id="home">
+      <h1 class="headline">Take Action on Climate Change Now</h1>
+      <button id="cta-button">Start Learning</button>
+    </div>
+    <div class="scroll-down" aria-label="Scroll down"></div>
+  </div>
+
+  <!-- Problem Section -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <h2 class="section-heading">The Climate Crisis</h2>
+      <p class="section-description">
+        Climate change is one of the most urgent challenges facing our planet
+        today. Here are some of the critical effects we are experiencing:
+      </p>
+      <ul class="problem-list">
+        <li>Rising Sea Levels</li>
+        <li>Extreme Weather Events</li>
+        <li>Loss of Biodiversity</li>
+        <li>Food and Water Scarcity</li>
+        <li>Increased Health Risks</li>
+      </ul>
+      <div class="statistics">
+        <div class="statistic">
+          <h3>CO<sub>2</sub> Levels</h3>
+          <p class="stat-value">416 ppm</p>
         </div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#problem">The Problem</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#map">Map</a></li>
-          <li><a href="#nasa-tools">NASA Tools</a></li>
-          <li class="dropdown">
-            <a
-              href="javascript:void(0)"
-              class="dropbtn"
-              onclick="toggleDropdown()"
-              >Fun</a
-            >
-            <div class="dropdown-content" id="gameDropdown">
-              <a href="/Games/ALIEN SAGA/index.html">Alien Saga</a>
-              <!-- Link to the Alien Saga HTML file -->
-              <a href="/Games/BLASTEROIDS/index.html">Blasteroids</a>
-              <!-- Link to the Blasteroids HTML file -->
-            </div>
+        <div class="statistic">
+          <h3>Average Global Temperature Rise</h3>
+          <p class="stat-value">1.2°C since 1880</p>
+        </div>
+        <div class="statistic">
+          <h3>Global Forest Loss</h3>
+          <p class="stat-value">13 million hectares/year</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Section -->
+    <div class="button-container">
+      <a href="src/calculator/index.html" class="cea-button">CO2 Emission Calculator</a>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions-section" id="solutions">
+    <h2 class="solutions-heading">We Have Solutions</h2>
+    <p class="solutions-intro">
+      Together, we can combat climate change through innovative approaches and
+      sustainable practices.
+    </p>
+    <div class="solutions-container">
+      <div class="solution-card">
+        <img src="images/pexels-pixabay-414943.jpg" alt="Renewable Energy" class="solution-image" />
+        <h3 class="solution-title">Renewable Energy</h3>
+        <p class="solution-description">
+          Harnessing solar, wind, and geothermal energy to reduce our carbon
+          footprint.
+        </p>
+      </div>
+      <div class="solution-card">
+        <img src="images/pexels-thanh-luu-29104820-25677017.jpg" alt="Sustainable Agriculture" class="solution-image" />
+        <h3 class="solution-title">Sustainable Agriculture</h3>
+        <p class="solution-description">
+          Adopting regenerative farming and reducing meat consumption for a
+          healthier planet.
+        </p>
+      </div>
+      <div class="solution-card">
+        <img src="images/pexels-matreding-13046594.jpg" alt="Green Cities" class="solution-image" />
+        <h3 class="solution-title">Green Cities</h3>
+        <p class="solution-description">
+          Promoting public transport and energy-efficient buildings to lower
+          emissions.
+        </p>
+      </div>
+      <div class="solution-card">
+        <img src="images/pexels-ron-lach-10363556.jpg" alt="Reforestation Projects" class="solution-image" />
+        <h3 class="solution-title">Reforestation Projects</h3>
+        <p class="solution-description">
+          Restoring forests and planting trees to absorb carbon and protect
+          biodiversity.
+        </p>
+      </div>
+    </div>
+    <a href="https://www.greenpeace.org.uk/challenges/climate-change/solutions-climate-change/" class="cta-button"
+      target="_blank">See What You Can Do</a>
+  </section>
+
+  <!-- Interactive Climate Map Section -->
+  <section class="map-section">
+    <h2 class="section-heading">Interactive Climate Map</h2>
+    <p class="section-description">
+      Explore climate data from different regions.
+    </p>
+    <div id="map-container">
+      <!-- Changed ID for the container -->
+      <div id="map"></div>
+      <!-- Keep the map div here -->
+    </div>
+  </section>
+
+  <!-- NASA Tools and Data Section -->
+  <section class="nasa-tools" id="nasa-tools">
+    <h2>NASA Tools and Data</h2>
+    <!-- Interactive Climate Data Map -->
+    <h3>Interactive Climate Data Map</h3>
+    <iframe src="https://climate.nasa.gov/interactives/climate-time-machine" class="nasa-map-frame"
+      title="Interactive Climate Data Map"></iframe>
+
+    <!-- Earth now Map -->
+    <h3>Interactive Earth Data Map</h3>
+    <iframe src="https://climate.nasa.gov/earth-now/" class="nasa-map-frame"
+      title="Interactive Earth Data Map"></iframe>
+  </section>
+
+  <!--Goals Section-->
+  <section class="goal-section">
+    <div class="header">
+      <h1 class="main-title">SUSTAINABLE DEVELOPMENT GOALS.</h1>
+      <nav>
+        <ul class="goal-list">
+          <li><a href="#goal1">GOAL 1</a></li>
+          <li><a href="#goal2">GOAL 2</a></li>
+          <li><a href="#goal3">GOAL 3</a></li>
+          <li><a href="#goal4">GOAL 4</a></li>
+          <li><a href="#goal5">GOAL 5</a></li>
+          <li><a href="#goal6">GOAL 6</a></li>
+          <li>
+            <!-- Updated button to open link using JavaScript -->
+            <a href="#" class="info-button" onclick="window.open('https://sdgs.un.org/goals/', '_blank');">FOR FURTHER
+              INFORMATION</a>
           </li>
         </ul>
       </nav>
-      <div class="content" id="home">
-        <h1 class="headline">Take Action on Climate Change Now</h1>
-        <button id="cta-button">Start Learning</button>
-      </div>
-      <div class="scroll-down" aria-label="Scroll down"></div>
     </div>
 
-    <!-- Problem Section -->
-    <section class="problem-section" id="problem">
-      <div class="container">
-        <h2 class="section-heading">The Climate Crisis</h2>
-        <p class="section-description">
-          Climate change is one of the most urgent challenges facing our planet
-          today. Here are some of the critical effects we are experiencing:
+    <div class="content">
+      <div class="section fade-in" id="goal1">
+        <img src="images/poverty.jpeg" alt="Goal 1 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 1</h2>
+        <h2>End Poverty in All Its Forms Everywhere</h2>
+        <p>
+          Poverty affects billions of people globally and is one of the most
+          urgent challenges of our time. It goes beyond the lack of income and
+          resources for a sustainable livelihood, affecting access to basic
+          services, social protections, and participation in decision-making
+          processes. Eradicating poverty is not just about providing material
+          resources, but also about enabling individuals and communities to
+          overcome systemic barriers to opportunity. Reducing poverty requires
+          coordinated global actions, such as improving access to education,
+          healthcare, and social protections while promoting policies that
+          foster job creation, income equity, and economic growth that
+          benefits everyone.
         </p>
-        <ul class="problem-list">
-          <li>Rising Sea Levels</li>
-          <li>Extreme Weather Events</li>
-          <li>Loss of Biodiversity</li>
-          <li>Food and Water Scarcity</li>
-          <li>Increased Health Risks</li>
-        </ul>
-        <div class="statistics">
-          <div class="statistic">
-            <h3>CO<sub>2</sub> Levels</h3>
-            <p class="stat-value">416 ppm</p>
-          </div>
-          <div class="statistic">
-            <h3>Average Global Temperature Rise</h3>
-            <p class="stat-value">1.2°C since 1880</p>
-          </div>
-          <div class="statistic">
-            <h3>Global Forest Loss</h3>
-            <p class="stat-value">13 million hectares/year</p>
-          </div>
-        </div>
+        <button class="next-goal" onclick="scrollToNext('goal2')">
+          Next Goal
+        </button>
       </div>
 
-      <!-- Button Section -->
-      <div class="button-container">
-        <a href="src/calculator/index.html" class="cea-button"
-          >CO2 Emission Calculator</a
-        >
-      </div>
-    </section>
-
-    <!-- Solutions Section -->
-    <section class="solutions-section" id="solutions">
-      <h2 class="solutions-heading">We Have Solutions</h2>
-      <p class="solutions-intro">
-        Together, we can combat climate change through innovative approaches and
-        sustainable practices.
-      </p>
-      <div class="solutions-container">
-        <div class="solution-card">
-          <img
-            src="images/pexels-pixabay-414943.jpg"
-            alt="Renewable Energy"
-            class="solution-image"
-          />
-          <h3 class="solution-title">Renewable Energy</h3>
-          <p class="solution-description">
-            Harnessing solar, wind, and geothermal energy to reduce our carbon
-            footprint.
-          </p>
-        </div>
-        <div class="solution-card">
-          <img
-            src="images/pexels-thanh-luu-29104820-25677017.jpg"
-            alt="Sustainable Agriculture"
-            class="solution-image"
-          />
-          <h3 class="solution-title">Sustainable Agriculture</h3>
-          <p class="solution-description">
-            Adopting regenerative farming and reducing meat consumption for a
-            healthier planet.
-          </p>
-        </div>
-        <div class="solution-card">
-          <img
-            src="images/pexels-matreding-13046594.jpg"
-            alt="Green Cities"
-            class="solution-image"
-          />
-          <h3 class="solution-title">Green Cities</h3>
-          <p class="solution-description">
-            Promoting public transport and energy-efficient buildings to lower
-            emissions.
-          </p>
-        </div>
-        <div class="solution-card">
-          <img
-            src="images/pexels-ron-lach-10363556.jpg"
-            alt="Reforestation Projects"
-            class="solution-image"
-          />
-          <h3 class="solution-title">Reforestation Projects</h3>
-          <p class="solution-description">
-            Restoring forests and planting trees to absorb carbon and protect
-            biodiversity.
-          </p>
-        </div>
-      </div>
-      <a
-        href="https://www.greenpeace.org.uk/challenges/climate-change/solutions-climate-change/"
-        class="cta-button"
-        target="_blank"
-        >See What You Can Do</a
-      >
-    </section>
-
-    <!-- Interactive Climate Map Section -->
-    <section class="map-section">
-      <h2 class="section-heading">Interactive Climate Map</h2>
-      <p class="section-description">
-        Explore climate data from different regions.
-      </p>
-      <div id="map-container">
-        <!-- Changed ID for the container -->
-        <div id="map"></div>
-        <!-- Keep the map div here -->
-      </div>
-    </section>
-
-    <!-- NASA Tools and Data Section -->
-    <section class="nasa-tools" id="nasa-tools">
-      <h2>NASA Tools and Data</h2>
-      <!-- Interactive Climate Data Map -->
-      <h3>Interactive Climate Data Map</h3>
-      <iframe
-        src="https://climate.nasa.gov/interactives/climate-time-machine"
-        class="nasa-map-frame"
-        title="Interactive Climate Data Map"
-      ></iframe>
-
-       <!-- Earth now Map -->
-       <h3>Interactive Earth Data Map</h3>
-       <iframe
-         src="https://climate.nasa.gov/earth-now/"
-         class="nasa-map-frame"
-         title="Interactive Earth Data Map"
-       ></iframe>
-    </section>
-
-    <!--Goals Section-->
-    <section class="goal-section">
-      <div class="header">
-        <h1 class="main-title">SUSTAINABLE DEVELOPMENT GOALS.</h1>
-        <nav>
-          <ul class="goal-list">
-            <li><a href="#goal1">GOAL 1</a></li>
-            <li><a href="#goal2">GOAL 2</a></li>
-            <li><a href="#goal3">GOAL 3</a></li>
-            <li><a href="#goal4">GOAL 4</a></li>
-            <li><a href="#goal5">GOAL 5</a></li>
-            <li><a href="#goal6">GOAL 6</a></li>
-            <li>
-              <!-- Updated button to open link using JavaScript -->
-              <a
-                href="#"
-                class="info-button"
-                onclick="window.open('https://sdgs.un.org/goals/', '_blank');"
-                >FOR FURTHER INFORMATION</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div class="content">
-        <div class="section fade-in" id="goal1">
-          <img
-            src="images/poverty.jpeg"
-            alt="Goal 1 Image"
-            class="goal-image"
-          />
-          <h2 class="goal-number">Goal 1</h2>
-          <h2>End Poverty in All Its Forms Everywhere</h2>
-          <p>
-            Poverty affects billions of people globally and is one of the most
-            urgent challenges of our time. It goes beyond the lack of income and
-            resources for a sustainable livelihood, affecting access to basic
-            services, social protections, and participation in decision-making
-            processes. Eradicating poverty is not just about providing material
-            resources, but also about enabling individuals and communities to
-            overcome systemic barriers to opportunity. Reducing poverty requires
-            coordinated global actions, such as improving access to education,
-            healthcare, and social protections while promoting policies that
-            foster job creation, income equity, and economic growth that
-            benefits everyone.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal2')">
-            Next Goal
-          </button>
-        </div>
-
-        <div class="section fade-in" id="goal2">
-          <img
-            src="images/nutrition.jpg"
-            alt="Goal 2 Image"
-            class="goal-image"
-          />
-          <h2 class="goal-number">Goal 2</h2>
-          <h2>End Hunger, Achieve Food Security and Improved Nutrition</h2>
-          <p>
-            Hunger affects more than 800 million people worldwide, with many
-            suffering from malnutrition that leads to stunted growth and
-            weakened immune systems. Food insecurity can be caused by conflict,
-            natural disasters, and economic shocks, disproportionately affecting
-            the most vulnerable populations, including women and children.
-            Achieving this goal requires ensuring that people have access to
-            enough nutritious food year-round. This involves promoting
-            sustainable agriculture, investing in resilient food production
-            systems, supporting smallholder farmers, and improving market access
-            to make sure food is distributed fairly and efficiently, even in
-            times of crisis.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal3')">
-            Next Goal
-          </button>
-        </div>
-
-        <div class="section fade-in" id="goal3">
-          <img src="images/health.jpg" alt="Goal 3 Image" class="goal-image" />
-          <h2 class="goal-number">Goal 3</h2>
-          <h2>Ensure Healthy Lives and Promote Well-Being for All</h2>
-          <p>
-            Ensuring healthy lives and promoting well-being is crucial for
-            building prosperous societies. Despite progress, millions of people
-            still die each year from preventable diseases, lack of access to
-            essential healthcare services, or complications related to pregnancy
-            and childbirth. This goal seeks to address these issues by improving
-            maternal and child health, reducing the prevalence of communicable
-            and non-communicable diseases, and ensuring that all people have
-            access to affordable and quality healthcare. Mental health also
-            plays a key role in achieving this goal, as it impacts individuals’
-            ability to live productive lives. Addressing the root causes of
-            health disparities, from access to clean water to universal
-            healthcare coverage, is essential to achieving this goal.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal4')">
-            Next Goal
-          </button>
-        </div>
-
-        <div class="section fade-in" id="goal4">
-          <img
-            src="images/Education.jpg"
-            alt="Goal 4 Image"
-            class="goal-image"
-          />
-          <h2 class="goal-number">Goal 4</h2>
-          <h2>Ensure Inclusive and Equitable Quality Education</h2>
-          <p>
-            Education is a powerful tool for reducing inequality and ensuring
-            sustainable development. Goal 4 focuses on providing inclusive,
-            equitable, and quality education for all, starting from early
-            childhood education through to higher education. However,
-            disparities in access to education still exist, with many children,
-            especially girls, in rural areas or conflict zones being denied the
-            opportunity to learn. Ensuring access to quality education also
-            means improving infrastructure, ensuring teachers are well-trained,
-            and integrating technology to provide lifelong learning
-            opportunities for all. Additionally, education should promote global
-            citizenship, sustainable development, gender equality, and human
-            rights, equipping future generations to solve the challenges the
-            world faces today.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal5')">
-            Next Goal
-          </button>
-        </div>
-
-        <div class="section fade-in" id="goal5">
-          <img
-            src="images/genderequality.jpg"
-            alt="Goal 5 Image"
-            class="goal-image"
-          />
-          <h2 class="goal-number">Goal 5</h2>
-          <h2>Achieve Gender Equality and Empower All Women and Girls</h2>
-          <p>
-            Gender equality is a fundamental human right and key to achieving a
-            fairer, more peaceful world. Women and girls face systemic barriers,
-            such as violence, discrimination, and lack of access to education,
-            healthcare, and job opportunities. Achieving gender equality
-            involves ensuring equal participation and leadership roles for women
-            in all sectors of society, eliminating gender-based violence,
-            ensuring access to reproductive health services, and addressing the
-            unpaid care burden disproportionately shouldered by women. By
-            promoting women’s empowerment and protecting the rights of girls,
-            societies can become more inclusive, economically prosperous, and
-            sustainable.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal6')">
-            Next Goal
-          </button>
-        </div>
-
-        <div class="section fade-in" id="goal6">
-          <img
-            src="images/clearwater.jpg"
-            alt="Goal 6 Image"
-            class="goal-image"
-          />
-          <h2 class="goal-number">Goal 6</h2>
-          <h2>
-            Ensure Availability and Sustainable Management of Water and
-            Sanitation for All
-          </h2>
-          <p>
-            Water is essential for survival, and access to clean water and
-            sanitation is a human right. Yet, billions of people still lack safe
-            drinking water, and many more live without proper sanitation
-            facilities. Goal 6 focuses on ensuring that all people have access
-            to safe and affordable drinking water, improving water quality by
-            reducing pollution, and managing water resources sustainably to
-            prevent scarcity. This goal also emphasizes the need to protect and
-            restore water-related ecosystems such as rivers and lakes, as well
-            as promoting community involvement in water management. Sustainable
-            water management is critical for maintaining health, economic
-            growth, and environmental sustainability.
-          </p>
-          <button class="next-goal" onclick="scrollToNext('goal1')">
-            Next Goal
-          </button>
-          <!-- Link back to Goal 1 -->
-        </div>
-      </div>
-    </section>
-    <!-- How You Can Help Section -->
-    <section class="help-section" id="involved">
-      <div class="container">
-        <h2 class="help-heading">How You Can Help</h2>
-        <p class="help-description">
-          Everyone can contribute to the fight against climate change. Here are
-          a few ways you can make a difference:
+      <div class="section fade-in" id="goal2">
+        <img src="images/nutrition.jpg" alt="Goal 2 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 2</h2>
+        <h2>End Hunger, Achieve Food Security and Improved Nutrition</h2>
+        <p>
+          Hunger affects more than 800 million people worldwide, with many
+          suffering from malnutrition that leads to stunted growth and
+          weakened immune systems. Food insecurity can be caused by conflict,
+          natural disasters, and economic shocks, disproportionately affecting
+          the most vulnerable populations, including women and children.
+          Achieving this goal requires ensuring that people have access to
+          enough nutritious food year-round. This involves promoting
+          sustainable agriculture, investing in resilient food production
+          systems, supporting smallholder farmers, and improving market access
+          to make sure food is distributed fairly and efficiently, even in
+          times of crisis.
         </p>
-
-        <div class="video-container">
-            <video
-                controls
-                autoplay
-                muted
-                loop
-            >
-                <source src="src/waste.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        
-        <div class="help-container">
-          <!-- Volunteer Card -->
-          <a
-            href="https://www.volunteerforever.com/article_post/volunteer-to-plant-trees-abroad/"
-            target="_blank"
-            class="help-card-link"
-          >
-            <div class="help-card">
-              <img
-                src="images/f1068d1b4bb9703134dce7a67470b15b.jpg"
-                alt="Volunteer"
-                class="help-image"
-              />
-              <h3 class="help-title">Volunteer</h3>
-              <p class="help-text">
-                Get involved with local environmental organizations and plant
-                trees or clean beaches.
-              </p>
-            </div>
-          </a>
-
-          <!-- Donate Card -->
-          <a
-            href="https://www.greenpeace.org.uk/support-us/"
-            target="_blank"
-            class="help-card-link"
-          >
-            <div class="help-card">
-              <img
-                src="images/330e52e06d1e3e0d7aaa418df3a63def.jpg"
-                alt="Donate"
-                class="help-image"
-              />
-              <h3 class="help-title">Donate</h3>
-              <p class="help-text">
-                Support climate initiatives by donating to NGOs that work to
-                protect our planet.
-              </p>
-            </div>
-          </a>
-
-          <!-- Raise Awareness Card -->
-          <a
-            href="https://climate-pact.europa.eu/get-inspired/how-talk-people-about-climate-action_en#:~:text=What%20you%20can%20say%3A,of%20your%20children%20and%20grandchildren."
-            target="_blank"
-            class="help-card-link"
-          >
-            <div class="help-card">
-              <img
-                src="images/53e5c915508e105101ef91808a93b49d.jpg"
-                alt="Raise Awareness"
-                class="help-image"
-              />
-              <h3 class="help-title">Raise Awareness</h3>
-              <p class="help-text">
-                Use your voice to inform others about climate change and
-                encourage sustainable living.
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <a href="https://www.nasa.gov/get-involved/" class="cta-button"
-          >Take Action Now</a
-        >
+        <button class="next-goal" onclick="scrollToNext('goal3')">
+          Next Goal
+        </button>
       </div>
-    </section>
 
-    <!-- Weather Section -->
-    <section class="weather-section">
-      <h2>Check the Weather</h2>
-      <input type="text" id="city-input" placeholder="Enter city name" />
-      <button id="weather-button">Get Weather</button>
-      <div id="weather-container"></div>
-    </section>
+      <div class="section fade-in" id="goal3">
+        <img src="images/health.jpg" alt="Goal 3 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 3</h2>
+        <h2>Ensure Healthy Lives and Promote Well-Being for All</h2>
+        <p>
+          Ensuring healthy lives and promoting well-being is crucial for
+          building prosperous societies. Despite progress, millions of people
+          still die each year from preventable diseases, lack of access to
+          essential healthcare services, or complications related to pregnancy
+          and childbirth. This goal seeks to address these issues by improving
+          maternal and child health, reducing the prevalence of communicable
+          and non-communicable diseases, and ensuring that all people have
+          access to affordable and quality healthcare. Mental health also
+          plays a key role in achieving this goal, as it impacts individuals’
+          ability to live productive lives. Addressing the root causes of
+          health disparities, from access to clean water to universal
+          healthcare coverage, is essential to achieving this goal.
+        </p>
+        <button class="next-goal" onclick="scrollToNext('goal4')">
+          Next Goal
+        </button>
+      </div>
 
-    <!-- Feedback Form Section -->
-    <section class="feedback-form">
-      <h2>Feedback</h2>
-      <form id="form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required placeholder="Your name" />
+      <div class="section fade-in" id="goal4">
+        <img src="images/Education.jpg" alt="Goal 4 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 4</h2>
+        <h2>Ensure Inclusive and Equitable Quality Education</h2>
+        <p>
+          Education is a powerful tool for reducing inequality and ensuring
+          sustainable development. Goal 4 focuses on providing inclusive,
+          equitable, and quality education for all, starting from early
+          childhood education through to higher education. However,
+          disparities in access to education still exist, with many children,
+          especially girls, in rural areas or conflict zones being denied the
+          opportunity to learn. Ensuring access to quality education also
+          means improving infrastructure, ensuring teachers are well-trained,
+          and integrating technology to provide lifelong learning
+          opportunities for all. Additionally, education should promote global
+          citizenship, sustainable development, gender equality, and human
+          rights, equipping future generations to solve the challenges the
+          world faces today.
+        </p>
+        <button class="next-goal" onclick="scrollToNext('goal5')">
+          Next Goal
+        </button>
+      </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required placeholder="Your email" />
+      <div class="section fade-in" id="goal5">
+        <img src="images/genderequality.jpg" alt="Goal 5 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 5</h2>
+        <h2>Achieve Gender Equality and Empower All Women and Girls</h2>
+        <p>
+          Gender equality is a fundamental human right and key to achieving a
+          fairer, more peaceful world. Women and girls face systemic barriers,
+          such as violence, discrimination, and lack of access to education,
+          healthcare, and job opportunities. Achieving gender equality
+          involves ensuring equal participation and leadership roles for women
+          in all sectors of society, eliminating gender-based violence,
+          ensuring access to reproductive health services, and addressing the
+          unpaid care burden disproportionately shouldered by women. By
+          promoting women’s empowerment and protecting the rights of girls,
+          societies can become more inclusive, economically prosperous, and
+          sustainable.
+        </p>
+        <button class="next-goal" onclick="scrollToNext('goal6')">
+          Next Goal
+        </button>
+      </div>
 
-        <label for="message">Message:</label>
-        <textarea
-          id="message"
-          rows="5"
-          required
-          placeholder="Your feedback"
-        ></textarea>
+      <div class="section fade-in" id="goal6">
+        <img src="images/clearwater.jpg" alt="Goal 6 Image" class="goal-image" />
+        <h2 class="goal-number">Goal 6</h2>
+        <h2>
+          Ensure Availability and Sustainable Management of Water and
+          Sanitation for All
+        </h2>
+        <p>
+          Water is essential for survival, and access to clean water and
+          sanitation is a human right. Yet, billions of people still lack safe
+          drinking water, and many more live without proper sanitation
+          facilities. Goal 6 focuses on ensuring that all people have access
+          to safe and affordable drinking water, improving water quality by
+          reducing pollution, and managing water resources sustainably to
+          prevent scarcity. This goal also emphasizes the need to protect and
+          restore water-related ecosystems such as rivers and lakes, as well
+          as promoting community involvement in water management. Sustainable
+          water management is critical for maintaining health, economic
+          growth, and environmental sustainability.
+        </p>
+        <button class="next-goal" onclick="scrollToNext('goal1')">
+          Next Goal
+        </button>
+        <!-- Link back to Goal 1 -->
+      </div>
+    </div>
+  </section>
+  <!-- How You Can Help Section -->
+  <section class="help-section" id="involved">
+    <div class="container">
+      <h2 class="help-heading">How You Can Help</h2>
+      <p class="help-description">
+        Everyone can contribute to the fight against climate change. Here are
+        a few ways you can make a difference:
+      </p>
 
-        <button type="submit">Submit Feedback</button>
-      </form>
-    </section>
+      <div class="video-container">
+        <video controls autoplay muted loop>
+          <source src="src/waste.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-    <script src="src/feedback.js"></script>
+      <div class="help-container">
+        <!-- Volunteer Card -->
+        <a href="https://www.volunteerforever.com/article_post/volunteer-to-plant-trees-abroad/" target="_blank"
+          class="help-card-link">
+          <div class="help-card">
+            <img src="images/f1068d1b4bb9703134dce7a67470b15b.jpg" alt="Volunteer" class="help-image" />
+            <h3 class="help-title">Volunteer</h3>
+            <p class="help-text">
+              Get involved with local environmental organizations and plant
+              trees or clean beaches.
+            </p>
+          </div>
+        </a>
+
+        <!-- Donate Card -->
+        <a href="https://www.greenpeace.org.uk/support-us/" target="_blank" class="help-card-link">
+          <div class="help-card">
+            <img src="images/330e52e06d1e3e0d7aaa418df3a63def.jpg" alt="Donate" class="help-image" />
+            <h3 class="help-title">Donate</h3>
+            <p class="help-text">
+              Support climate initiatives by donating to NGOs that work to
+              protect our planet.
+            </p>
+          </div>
+        </a>
+
+        <!-- Raise Awareness Card -->
+        <a href="https://climate-pact.europa.eu/get-inspired/how-talk-people-about-climate-action_en#:~:text=What%20you%20can%20say%3A,of%20your%20children%20and%20grandchildren."
+          target="_blank" class="help-card-link">
+          <div class="help-card">
+            <img src="images/53e5c915508e105101ef91808a93b49d.jpg" alt="Raise Awareness" class="help-image" />
+            <h3 class="help-title">Raise Awareness</h3>
+            <p class="help-text">
+              Use your voice to inform others about climate change and
+              encourage sustainable living.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <a href="https://www.nasa.gov/get-involved/" class="cta-button">Take Action Now</a>
+    </div>
+  </section>
+
+  <!-- Weather Section -->
+  <section class="weather-section">
+    <h2>Check the Weather</h2>
+    <input type="text" id="city-input" placeholder="Enter city name" />
+    <button id="weather-button">Get Weather</button>
+    <div id="weather-container"></div>
+  </section>
+
+  <!-- Feedback Form Section -->
+  <section class="feedback-form">
+    <h2>Feedback</h2>
+    <form id="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required placeholder="Your name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required placeholder="Your email" />
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" required placeholder="Your feedback"></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <script src="src/feedback.js"></script>
+
+  <footer>
+    <div class="footer-content">
+      <p>Developed by:</p>
+      <div class="developers">
+        <a href="https://github.com/Hrishi144" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Hrishikesh D</span>
+        </a>
+        <a href="https://github.com/Jins-Augustine" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Jins Augustine</span>
+        </a>
+        <a href="https://github.com/Sreee444" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Sreenandhu Jacy</span>
+        </a>
+        <a href="https://github.com/Sour4vS" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Sourav S</span>
+        </a>
+        <a href="https://github.com/LijoThomas2004" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Lijo Thomas</span>
+        </a>
+        <a href="https://github.com/ItzMeHyper" target="_blank" class="developer">
+          <i class="fa-solid fa-code developer-icon"></i>
+          <span class="developer-name">Vaisakh Manu</span>
+        </a>
+      </div>
+    </div>
+  </footer>
 
     <!-- Footer -->
-    <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.85); color: #fff; margin: 0;">
-        &copy; 2024 Code Crushers Initiative. All rights reserved.
-    </footer>
+    <footer style="
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    margin: 0;
+  ">
+&copy; 2024|Team Code Crushers. All rights reserved.
+</footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-      // Initialize the map
-      var map = L.map("map").setView([9.5, 76.8], 2); // Centered on the world
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map("map").setView([9.5, 76.8], 2); // Centered on the world
 
-      // Add OpenStreetMap tile layer
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
+    // Add OpenStreetMap tile layer
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
 
-      // Add a marker with a popup
-      var marker = L.marker([9.5, 76.8]).addTo(map);
-      marker
-        .bindPopup("<b>Welcome to the Climate Map!</b><br>You are here.")
-        .openPopup();
+    // Add a marker with a popup
+    var marker = L.marker([9.5, 76.8]).addTo(map);
+    marker
+      .bindPopup("<b>Welcome to the Climate Map!</b><br>You are here.")
+      .openPopup();
 
-      function scrollToNext(goalId) {
-        const target = document.getElementById(goalId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+    function scrollToNext(goalId) {
+      const target = document.getElementById(goalId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
