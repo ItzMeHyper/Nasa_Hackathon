@@ -16,7 +16,9 @@ function displayAPOD(data) {
   const { title, explanation, url, media_type } = data;
   apodContainer.innerHTML = `
     <h3>${title}</h3>
-    ${media_type === 'video' ? `<iframe src="${url}" frameborder="0" allowfullscreen></iframe>` : `<img src="${url}" alt="${title}">`}
+    ${media_type === 'video' ? 
+      `<iframe src="${url}" frameborder="0" allowfullscreen width="100%" height="400"></iframe>` 
+      : `<img src="${url}" alt="${title}" width="100%">`}
     <p>${explanation}</p>
   `;
 }
@@ -24,14 +26,21 @@ function displayAPOD(data) {
 // Weather API
 const weatherApiKey = 'a31dc844fbbaf454382e5be2d17e947d'; // Replace with your OpenWeatherMap API key
 const weatherContainer = document.getElementById('weather-container');
+const defaultCity = 'London'; // You can change this to any city
 
 async function fetchWeather(city) {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`);
     const data = await response.json();
-    displayWeather(data);
+    
+    if (data.cod === "404") {
+      weatherContainer.innerHTML = `<p>City not found. Please enter a valid city.</p>`;
+    } else {
+      displayWeather(data);
+    }
   } catch (error) {
     console.error('Error fetching weather data:', error);
+    weatherContainer.innerHTML = `<p>Error fetching weather data. Please try again later.</p>`;
   }
 }
 
@@ -47,14 +56,6 @@ function displayWeather(data) {
 // Smooth scrolling for the call-to-action button
 document.getElementById("cta-button").addEventListener("click", function () {
   window.scrollTo({
-    top: document.querySelector('.intro-sdg13').offsetTop,
-    behavior: 'smooth'
-  });
-});
-
-// Scroll down arrow functionality
-document.getElementById("cta-button").addEventListener("click", function () {
-  window.scrollTo({
     top: document.querySelector('#problem').offsetTop,
     behavior: 'smooth'
   });
@@ -63,13 +64,21 @@ document.getElementById("cta-button").addEventListener("click", function () {
 // Feedback form submission
 document.getElementById('form').addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent default form submission
-  alert('Thank you for your feedback!');
+  const feedbackMessage = document.createElement('p');
+  feedbackMessage.innerText = 'Thank you for your feedback!';
+  feedbackMessage.style.color = '#f8d71c';
+  this.appendChild(feedbackMessage);
+
+  setTimeout(() => {
+    feedbackMessage.remove(); // Remove the message after a few seconds
+  }, 3000);
+
   this.reset(); // Reset form fields
 });
 
 // Fetch data on page load
 fetchAPOD();
-fetchWeather('London'); // Replace 'London' with any city name
+fetchWeather(defaultCity);
 
 // Weather button functionality
 document.getElementById('weather-button').addEventListener('click', function () {

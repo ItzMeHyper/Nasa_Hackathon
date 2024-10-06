@@ -41,10 +41,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  /* Increase transparency */
-  backdrop-filter: blur(0.8px);
-  /* Adding blur to make text stand out */
+  background-color: rgba(0, 0, 0, 0.6); /* Increase transparency */
+  backdrop-filter: blur(0.8px); /* Adding blur to make text stand out */
   z-index: 1;
 }
 
@@ -60,8 +58,7 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   color: #f8d71c;
-  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
-  /* Stronger shadow for impact */
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow for impact */
 }
 
 #cta-button {
@@ -72,18 +69,15 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-  /* Slightly stronger shadow */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
   transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s;
-  opacity: 0.9;
-  /* Slight transparency */
+  opacity: 0.9; /* Slight transparency */
 }
 
 #cta-button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #00c6ff, #28a745);
-  opacity: 1;
-  /* Fully opaque on hover */
+  opacity: 1; /* Fully opaque on hover */
 }
 
 .scroll-down {
@@ -112,22 +106,17 @@ body {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  /* Blurred background for nav */
   z-index: 1000;
   overflow: hidden;
-  /* Prevent overflow */
   flex-wrap: nowrap;
-  /* Ensure items stay in one line */
+  transition: top 0.3s ease-in-out; /* Smooth hide/show transition */
 }
 
 /* Ensure links don't exceed available space */
 .navbar a {
-  flex: 1;
-  /* Allow links to grow and fill space */
-  text-align: center;
-  /* Center-align text */
+  flex: 1; /* Allow links to grow and fill space */
+  text-align: center; /* Center-align text */
 }
-
 .logo a {
   color: #f8d71c;
   text-decoration: none;
@@ -161,10 +150,8 @@ body {
 /* Problem Section */
 .problem-section {
   padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.85);
-  /* Semi-transparent background */
-  backdrop-filter: blur(8px);
-  /* Blur effect */
+  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent background */
+  backdrop-filter: blur(8px); /* Blur effect */
 }
 
 .problem-section h2 {
@@ -198,8 +185,7 @@ body {
   border-radius: 10px;
   margin: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  /* Add shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
 }
 
 .statistic h3 {
@@ -236,8 +222,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
-  /* Increase gap between solution cards */
+  gap: 30px; /* Increase gap between solution cards */
 }
 
 .solution-card {
@@ -250,8 +235,7 @@ body {
 }
 
 .solution-card:hover {
-  transform: translateY(-10px);
-  /* Lift on hover */
+  transform: translateY(-10px); /* Lift on hover */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -308,7 +292,6 @@ body {
 .nasa-link:hover {
   text-decoration: underline;
 }
-
 .nasa-tool-frame,
 .nasa-map-frame {
   width: 100%;
@@ -346,8 +329,7 @@ body {
 }
 
 #weather-button:hover {
-  background-color: #e6c121;
-  /* Slightly darker shade on hover */
+  background-color: #e6c121; /* Slightly darker shade on hover */
 }
 
 #weather-container {
@@ -416,7 +398,6 @@ footer {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -424,19 +405,12 @@ footer {
 }
 
 @keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
-
   40% {
     transform: translateY(-10px);
   }
-
   60% {
     transform: translateY(-5px);
   }
@@ -445,59 +419,45 @@ footer {
 /* Responsive Styles */
 @media (max-width: 768px) {
   .hero-section {
-    height: 70vh;
-    /* Adjust hero section height for mobile */
+    height: 70vh; /* Adjust hero section height for mobile */
   }
-
+  
   .content .headline {
-    font-size: 2.5rem;
-    /* Adjust font size */
+    font-size: 2.5rem; /* Adjust font size */
+  }
+  
+  .navbar {
+    padding: 10px;
+    flex-wrap:wrap; /* Ensures items stay in a single line */
+    justify-content: space-between; /* Distributes space between logo and links */
   }
 
-  @media (max-width: 768px) {
-    .navbar {
-      padding: 10px;
-      flex-wrap: nowrap;
-      /* Ensures items stay in a single line */
-      justify-content: space-between;
-      /* Distributes space between logo and links */
-    }
-
-    .navbar a {
-      font-size: 0.9rem;
-      /* Smaller font size for mobile */
-      padding: 5px 10px;
-      /* Adjust padding to fit small screens */
-    }
-
-    .nav-links {
-      flex-direction: row;
-      /* Keep links in a row */
-      gap: 10px;
-      /* Add a small gap between links */
-    }
-
-    .logo a {
-      font-size: 1.4rem;
-      /* Reduce logo size */
-    }
-
-    .nav-links li {
-      margin: 10px 0;
-    }
-
-    .solution-card {
-      width: 90%;
-      /* Full width on mobile */
-    }
-
-    .statistics {
-      flex-direction: column;
-      /* Stack statistics vertically */
-    }
-
-    #map {
-      height: 300px;
-      /* Adjust map height for mobile */
-    }
+  .navbar a {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+    padding: 5px 10px; /* Adjust padding to fit small screens */
   }
+
+  .nav-links {
+    flex-direction: auto ; /* Keep links in a row */
+    gap: 10px; /* Add a small gap between links */
+  }
+  
+  .logo a {
+    font-size: 1.4rem; /* Reduce logo size */
+  }
+  .nav-links li {
+    margin: 10px 0;
+  }
+  
+  .solution-card {
+    width: 90%; /* Full width on mobile */
+  }
+  
+  .statistics {
+    flex-direction: column; /* Stack statistics vertically */
+  }
+  
+  #map {
+    height: 300px; /* Adjust map height for mobile */
+  }
+}
