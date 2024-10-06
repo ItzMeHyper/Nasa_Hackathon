@@ -1,155 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Take Action on Climate Change</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-</head>
-<body>
-  <!-- Hero Section -->
-  <div class="hero-section">
-    <video autoplay muted loop class="background-video">
-      <source src="/src/earth3.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <div class="overlay"></div>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="#">🌍 ClimateCare</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take Action on Climate Change</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      /* Add custom styles for the map container */
+      #map {
+        height: 700px; /* Set a height for the map */
+        margin: 20px 0; /* Add some margin */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <video autoplay muted loop class="background-video">
+        <source src="/src/earth3.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="overlay"></div>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#">🌍 ClimateCare</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#involved">Get Involved</a></li>
+          <li><a href="#nasa-tools">NASA Tools</a></li>
+          <li><a href="#donate" class="donate-btn">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        <h1 class="headline">Take Action on Climate Change Now</h1>
+        <button id="cta-button">Start Learning</button>
       </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#problem">The Problem</a></li>
-        <li><a href="#solutions">Solutions</a></li>
-        <li><a href="#involved">Get Involved</a></li>
-        <li><a href="#nasa-tools">NASA Tools</a></li>
-        <li><a href="#donate" class="donate-btn">Donate</a></li>
+      <div class="scroll-down" aria-label="Scroll down"></div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="problem">
+      <div class="container">
+        <h2 class="section-heading">The Climate Crisis</h2>
+        <p class="section-description">
+          Climate change is one of the most urgent challenges facing our planet
+          today. Here are some of the critical effects we are experiencing:
+        </p>
+        <ul class="problem-list">
+          <li>Rising Sea Levels</li>
+          <li>Extreme Weather Events</li>
+          <li>Loss of Biodiversity</li>
+          <li>Food and Water Scarcity</li>
+          <li>Increased Health Risks</li>
+        </ul>
+        <div class="statistics">
+          <div class="statistic">
+            <h3>CO<sub>2</sub> Levels</h3>
+            <p class="stat-value">416 ppm</p>
+          </div>
+          <div class="statistic">
+            <h3>Average Global Temperature Rise</h3>
+            <p class="stat-value">1.2°C since 1880</p>
+          </div>
+          <div class="statistic">
+            <h3>Global Forest Loss</h3>
+            <p class="stat-value">13 million hectares/year</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section" id="solutions">
+      <h2 class="solutions-heading">We Have Solutions</h2>
+      <p class="solutions-intro">
+        Together, we can combat climate change through innovative approaches and
+        sustainable practices.
+      </p>
+      <div class="solutions-container">
+        <div class="solution-card">
+          <img
+            src="images/renewable-energy.jpg"
+            alt="Renewable Energy"
+            class="solution-image"
+          />
+          <h3 class="solution-title">Renewable Energy</h3>
+          <p class="solution-description">
+            Harnessing solar, wind, and geothermal energy to reduce our carbon
+            footprint.
+          </p>
+        </div>
+        <div class="solution-card">
+          <img
+            src="images/sustainable-agriculture.jpg"
+            alt="Sustainable Agriculture"
+            class="solution-image"
+          />
+          <h3 class="solution-title">Sustainable Agriculture</h3>
+          <p class="solution-description">
+            Adopting regenerative farming and reducing meat consumption for a
+            healthier planet.
+          </p>
+        </div>
+        <div class="solution-card">
+          <img
+            src="images/green-cities.jpg"
+            alt="Green Cities"
+            class="solution-image"
+          />
+          <h3 class="solution-title">Green Cities</h3>
+          <p class="solution-description">
+            Promoting public transport and energy-efficient buildings to lower
+            emissions.
+          </p>
+        </div>
+        <div class="solution-card">
+          <img
+            src="images/reforestation.jpg"
+            alt="Reforestation Projects"
+            class="solution-image"
+          />
+          <h3 class="solution-title">Reforestation Projects</h3>
+          <p class="solution-description">
+            Restoring forests and planting trees to absorb carbon and protect
+            biodiversity.
+          </p>
+        </div>
+      </div>
+      <a href="#action" class="cta-button">Take Action Now</a>
+    </section>
+
+    <!-- Interactive Climate Map Section -->
+    <section class="map-section" id="action">
+      <h2 class="section-heading">Interactive Climate Map</h2>
+      <p class="section-description">
+        Explore climate data from different regions.
+      </p>
+      <div id="map"></div>
+    </section>
+
+    <!-- NASA Tools and Data Section -->
+    <section class="nasa-tools" id="nasa-tools">
+      <h2>NASA Tools and Data</h2>
+      <!-- Interactive Climate Data Map -->
+      <h3>Interactive Climate Data Map</h3>
+      <p>Explore climate data interactively by using the map below:</p>
+      <iframe
+        src="https://climate.nasa.gov/interactives/climate-time-machine"
+        class="nasa-map-frame"
+        title="Interactive Climate Data Map"
+      ></iframe>
+      <h3>Real-Time Climate Data</h3>
+      <p>
+        View real-time climate data such as CO2 levels, temperature changes, and
+        sea-level rise.
+      </p>
+      <a href="https://climate.nasa.gov/" target="_blank" class="nasa-link"
+        >Visit NASA's Vital Signs of the Planet</a
+      >
+      <h3>NASA GLOBE Observer</h3>
+      <p>
+        Contribute to citizen science through NASA's GLOBE Observer app by
+        providing data like cloud cover and land conditions.
+      </p>
+      <ul class="globe-steps">
+        <li>
+          Download the
+          <a
+            href="https://observer.globe.gov/"
+            target="_blank"
+            class="nasa-link"
+            >NASA GLOBE Observer app</a
+          >
+          from the App Store or Google Play.
+        </li>
+        <li>Sign up for an account.</li>
+        <li>
+          Start contributing data by observing and recording cloud cover, land
+          conditions, and other important variables.
+        </li>
       </ul>
-    </nav>
-    <div class="content">
-      <h1 class="headline">Take Action on Climate Change Now</h1>
-      <button id="cta-button">Start Learning</button>
-    </div>
-    <div class="scroll-down" aria-label="Scroll down"></div>
-  </div>
+    </section>
 
-  <!-- Problem Section -->
-  <section class="problem-section" id="problem">
-    <div class="container">
-      <h2 class="section-heading">The Climate Crisis</h2>
-      <p class="section-description">Climate change is one of the most urgent challenges facing our planet today. Here are some of the critical effects we are experiencing:</p>
-      <ul class="problem-list">
-        <li>Rising Sea Levels</li>
-        <li>Extreme Weather Events</li>
-        <li>Loss of Biodiversity</li>
-        <li>Food and Water Scarcity</li>
-        <li>Increased Health Risks</li>
-      </ul>
-      <div class="statistics">
-        <div class="statistic">
-          <h3>CO<sub>2</sub> Levels</h3>
-          <p class="stat-value">416 ppm</p>
-        </div>
-        <div class="statistic">
-          <h3>Average Global Temperature Rise</h3>
-          <p class="stat-value">1.2°C since 1880</p>
-        </div>
-        <div class="statistic">
-          <h3>Global Forest Loss</h3>
-          <p class="stat-value">13 million hectares/year</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Weather Section -->
+    <section class="weather-section">
+      <h2>Check the Weather</h2>
+      <input type="text" id="city-input" placeholder="Enter city name" />
+      <button id="weather-button">Get Weather</button>
+      <div id="weather-container"></div>
+    </section>
 
-  <!-- Solutions Section -->
-  <section class="solutions-section" id="solutions">
-    <h2 class="solutions-heading">We Have Solutions</h2>
-    <p class="solutions-intro">Together, we can combat climate change through innovative approaches and sustainable practices.</p>
-    <div class="solutions-container">
-      <div class="solution-card">
-        <img src="images/renewable-energy.jpg" alt="Renewable Energy" class="solution-image"/>
-        <h3 class="solution-title">Renewable Energy</h3>
-        <p class="solution-description">Harnessing solar, wind, and geothermal energy to reduce our carbon footprint.</p>
-      </div>
-      <div class="solution-card">
-        <img src="images/sustainable-agriculture.jpg" alt="Sustainable Agriculture" class="solution-image"/>
-        <h3 class="solution-title">Sustainable Agriculture</h3>
-        <p class="solution-description">Adopting regenerative farming and reducing meat consumption for a healthier planet.</p>
-      </div>
-      <div class="solution-card">
-        <img src="images/green-cities.jpg" alt="Green Cities" class="solution-image"/>
-        <h3 class="solution-title">Green Cities</h3>
-        <p class="solution-description">Promoting public transport and energy-efficient buildings to lower emissions.</p>
-      </div>
-      <div class="solution-card">
-        <img src="images/reforestation.jpg" alt="Reforestation Projects" class="solution-image"/>
-        <h3 class="solution-title">Reforestation Projects</h3>
-        <p class="solution-description">Restoring forests and planting trees to absorb carbon and protect biodiversity.</p>
-      </div>
-    </div>
-    <a href="#action" class="cta-button">Take Action Now</a>
-  </section>
+    <!-- Feedback Form Section -->
+    <section class="feedback-form">
+      <h2>Feedback</h2>
+      <form id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required placeholder="Your name" />
 
-  <!-- Interactive Climate Map Section -->
-  <section class="map-section" id="action">
-    <h2 class="section-heading">Interactive Climate Map</h2>
-    <p class="section-description">Explore climate data from different regions.</p>
-    <div id="map"></div>
-  </section>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required placeholder="Your email" />
 
-  <!-- NASA Tools and Data Section -->
-  <section class="nasa-tools" id="nasa-tools">
-    <h2>NASA Tools and Data</h2>
-    <!-- Interactive Climate Data Map -->
-    <h3>Interactive Climate Data Map</h3>
-    <p>Explore climate data interactively by using the map below:</p>
-    <iframe src="https://climate.nasa.gov/interactives/climate-time-machine" class="nasa-map-frame" title="Interactive Climate Data Map"></iframe>
-    <h3>Real-Time Climate Data</h3>
-    <p>View real-time climate data such as CO2 levels, temperature changes, and sea-level rise.</p>
-    <a href="https://climate.nasa.gov/" target="_blank" class="nasa-link">Visit NASA's Vital Signs of the Planet</a>
-    <h3>NASA GLOBE Observer</h3>
-    <p>Contribute to citizen science through NASA's GLOBE Observer app by providing data like cloud cover and land conditions.</p>
-    <ul class="globe-steps">
-      <li>Download the <a href="https://observer.globe.gov/" target="_blank" class="nasa-link">NASA GLOBE Observer app</a> from the App Store or Google Play.</li>
-      <li>Sign up for an account.</li>
-      <li>Start contributing data by observing and recording cloud cover, land conditions, and other important variables.</li>
-    </ul>
-  </section>
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          rows="5"
+          required
+          placeholder="Your feedback"
+        ></textarea>
 
-  <!-- Weather Section -->
-  <section class="weather-section">
-    <h2>Check the Weather</h2>
-    <input type="text" id="city-input" placeholder="Enter city name">
-    <button id="weather-button">Get Weather</button>
-    <div id="weather-container"></div>
-  </section>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </section>
 
-  <!-- Feedback Form Section -->
-  <section class="feedback-form">
-    <h2>Feedback</h2>
-    <form id="form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required placeholder="Your name">
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" required placeholder="Your email">
-      
-      <label for="message">Message:</label>
-      <textarea id="message" rows="5" required placeholder="Your feedback"></textarea>
-      
-      <button type="submit">Submit Feedback</button>
-    </form>
-  </section>
+    <!-- Footer -->
+    <footer>&copy; 2024 Climate Action Initiative. All rights reserved.</footer>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2024 Climate Action Initiative. All rights reserved.
-  </footer>
+    <script src="script.js"></script>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="script.js"></script>
-</body>
+     <!-- Leaflet JS -->
+     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+     <script>
+       // Initialize the map
+       var map = L.map("map").setView([20, 0], 2); // Centered on the world
+ 
+       // Add OpenStreetMap tile layer
+       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+         maxZoom: 19,
+         attribution:
+           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+       }).addTo(map);
+ 
+       // Add a marker with a popup
+       var marker = L.marker([9.5, 76.8]).addTo(map);
+       marker
+         .bindPopup(
+           "<b>Welcome to the Climate Map!</b><br>Explore climate data here."
+         )
+         .openPopup();
+     </script>
+  </body>
 </html>
