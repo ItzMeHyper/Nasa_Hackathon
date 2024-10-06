@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Carbon Emission Calculator</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-leaf"></i> Carbon Emission Calculator</h1>
+            <p>Estimate your carbon footprint based on your lifestyle choices.</p>
+        </header>
+        <main>
+            <section class="calculator">
+                <div class="input-group">
+                    <label class="input">
+                        <input class="input__field" type="number" id="milesDriven" placeholder=" " />
+                        <span class="input__label"><i class="fas fa-car"></i> Miles Driven per Week</span>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label class="input">
+                        <input class="input__field" type="number" id="electricityUsed" placeholder=" " />
+                        <span class="input__label"><i class="fas fa-bolt"></i> Electricity Used (kWh per Month)</span>
+                    </label>
+                </div>
+                <button class="calculate-button" onclick="calculateEmissions()">Calculate Emissions</button>
+            </section>
+            <div class="result-box" id="resultBox" style="display: none;"></div>
+            <button class="info-button" onclick="window.open('https://www.nasa.gov', '_blank')">
+                <i class="fas fa-info-circle"></i> Data Provided by NASA
+            </button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

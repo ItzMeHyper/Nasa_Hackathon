@@ -88,6 +88,29 @@ body {
   opacity: 1;
   /* Fully opaque on hover */
 }
+.button-container {
+  margin-top: 20px; /* Space above the button */
+  text-align: center; /* Center align the button */
+}
+
+.cea-button {
+  background-color: #f8d71c; /* Yellow background */
+  color: #000; /* Black text */
+  border: none; /* No border */
+  padding: 15px 30px; /* Padding for a larger button */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(248, 215, 28, 0.5); /* Yellow glow effect */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+.cea-button:hover {
+  background-color: #e0c25d; /* Darker shade on hover */
+  box-shadow: 0 0 20px rgba(248, 215, 28, 0.8), 0 0 30px rgba(248, 215, 28, 0.6); /* Enhanced glow on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
 
 .scroll-down {
   position: absolute;
