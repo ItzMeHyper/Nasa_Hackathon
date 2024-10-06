@@ -8,12 +8,18 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #121212;
-  /* Dark background */
   color: #e0e0e0;
-  /* Light text color */
   scroll-behavior: smooth;
   line-height: 1.6;
-  /* Improve readability */
+  font-size: 16px;
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Hero Section */
@@ -45,9 +51,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  /* Increase transparency */
   backdrop-filter: blur(0.8px);
-  /* Adding blur to make text stand out */
   z-index: 1;
 }
 
@@ -56,15 +60,15 @@ body {
   z-index: 2;
   text-align: center;
   animation: fadeIn 2s ease-in-out;
+  padding: 0 20px;
 }
 
 .content .headline {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
   margin-bottom: 20px;
   color: #f8d71c;
   text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
-  /* Stronger shadow for impact */
 }
 
 #cta-button {
@@ -72,58 +76,41 @@ body {
   background: linear-gradient(90deg, #28a745, #00c6ff);
   border: none;
   color: white;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 3vw, 1.4rem);
   cursor: pointer;
   border-radius: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-  /* Slightly stronger shadow */
   transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s;
   opacity: 0.9;
-  /* Slight transparency */
 }
 
 #cta-button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #00c6ff, #28a745);
   opacity: 1;
-  /* Fully opaque on hover */
 }
+
 .button-container {
-  margin-top: 20px; /* Space above the button */
-  text-align: center; /* Center align the button */
+  margin-top: 20px;
+  text-align: center;
 }
 
 .cea-button {
-  background-color: #f8d71c; /* Yellow background */
-  color: #000; /* Black text */
-  border: none; /* No border */
-  padding: 15px 30px; /* Padding for a larger button */
-  font-size: 18px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(248, 215, 28, 0.5); /* Yellow glow effect */
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s; /* Smooth transition */
+  background-color: #f8d71c;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(248, 215, 28, 0.5);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 
 .cea-button:hover {
-  background-color: #e0c25d; /* Darker shade on hover */
-  box-shadow: 0 0 20px rgba(248, 215, 28, 0.8), 0 0 30px rgba(248, 215, 28, 0.6); /* Enhanced glow on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
-}
-
-
-.scroll-down {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 30px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  animation: bounce 2s infinite;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: #e0c25d;
+  box-shadow: 0 0 20px rgba(248, 215, 28, 0.8), 0 0 30px rgba(248, 215, 28, 0.6);
+  transform: scale(1.05);
 }
 
 /* Navigation */
@@ -140,21 +127,12 @@ body {
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: top 0.3s ease-in-out;
-  /* Smooth hide/show transition */
-}
-
-/* Ensure links don't exceed available space */
-.navbar a {
-  flex: 1;
-  /* Allow links to grow and fill space */
-  text-align: center;
-  /* Center-align text */
 }
 
 .logo a {
   color: #f8d71c;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: bold;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
@@ -171,7 +149,7 @@ body {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   transition: color 0.3s ease, opacity 0.3s;
   opacity: 0.8;
 }
@@ -184,26 +162,19 @@ body {
 /* Problem Section */
 .problem-section {
   background-color: rgba(0, 0, 0, 0.7);
-  /* Slightly transparent black background */
   padding: 60px 20px;
   color: white;
   text-align: center;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .section-heading {
-  font-size: 3em;
+  font-size: clamp(2rem, 4vw, 3em);
   margin-bottom: 20px;
   color: #ffcc00;
 }
 
 .section-description {
-  font-size: 1.2em;
+  font-size: clamp(1rem, 2vw, 1.2em);
   margin-bottom: 30px;
 }
 
@@ -213,13 +184,13 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .problem-list li {
-  margin: 10px 0;
-  font-size: 1.2em;
-  flex: 1 1 200px;
-  padding: 10px 15px;
+  font-size: clamp(1rem, 2vw, 1.2em);
+  flex: 1 1 250px;
+  padding: 15px;
   background-color: #1f1f1f;
   border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -234,12 +205,12 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 20px;
   margin-top: 40px;
 }
 
 .statistic {
   text-align: center;
-  margin-bottom: 20px;
   flex: 1 1 200px;
   background-color: #2b2b2b;
   padding: 20px;
@@ -254,38 +225,9 @@ body {
 }
 
 .stat-value {
-  font-size: 1.8em;
+  font-size: clamp(1.4em, 3vw, 1.8em);
   color: #28a745;
-  /* Green */
   margin-top: 10px;
-}
-
-
-/* Statistics Section */
-.statistics {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.statistic {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 10px;
-  margin: 20px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  /* Add shadow */
-}
-
-.statistic h3 {
-  color: #f8d71c;
-  margin-bottom: 10px;
-}
-
-.stat-value {
-  font-size: 1.6rem;
-  font-weight: bold;
 }
 
 /* Solutions Section */
@@ -296,13 +238,13 @@ body {
 }
 
 .solutions-heading {
-  font-size: 2.5em;
+  font-size: clamp(2rem, 4vw, 2.5em);
   color: #ffcc00;
   margin-bottom: 20px;
 }
 
 .solutions-intro {
-  font-size: 1.2em;
+  font-size: clamp(1rem, 2vw, 1.2em);
   color: #e0e0e0;
   margin-bottom: 40px;
 }
@@ -318,8 +260,8 @@ body {
   background-color: #2b2b2b;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  /* Increased width for better readability */
+  width: 100%;
+  max-width: 300px;
   text-align: left;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -332,37 +274,21 @@ body {
 
 .solution-image {
   width: 100%;
-  height: 350px;
+  height: 200px;
+  object-fit: cover;
   border-bottom: 4px solid #ffcc00;
 }
 
 .solution-title {
   color: #ffcc00;
   margin: 10px;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
 .solution-description {
   margin: 10px;
   color: #e0e0e0;
-  font-size: 1em;
-}
-
-/* CTA Button in Solutions Section */
-.cta-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
+  font-size: clamp(0.9rem, 2vw, 1em);
 }
 
 /* Map Section */
@@ -385,11 +311,13 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-.nasa-tool-frame {
+.nasa-tool-frame, .nasa-map-frame {
   width: 100%;
   height: 600px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  margin: 10px 0;
 }
 
 .nasa-link {
@@ -401,14 +329,6 @@ body {
   text-decoration: underline;
 }
 
-.nasa-tool-frame,
-.nasa-map-frame {
-  width: 100%;
-  height: 800px;
-  border: none;
-  margin: 10px 0;
-}
-
 /* How You Can Help Section */
 .help-section {
   padding: 60px 20px;
@@ -417,13 +337,13 @@ body {
 }
 
 .help-heading {
-  font-size: 2.5em;
+  font-size: clamp(2rem, 4vw, 2.5em);
   color: #ffcc00;
   margin-bottom: 20px;
 }
 
 .help-description {
-  font-size: 1.2em;
+  font-size: clamp(1rem, 2vw, 1.2em);
   color: #e0e0e0;
   margin-bottom: 40px;
 }
@@ -440,7 +360,8 @@ body {
   background-color: #2b2b2b;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   text-align: left;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -453,19 +374,20 @@ body {
 
 .help-image {
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: cover;
 }
 
 .help-title {
   color: #ffcc00;
   margin: 10px;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
 .help-text {
   margin: 10px;
   color: #e0e0e0;
-  font-size: 1em;
+  font-size: clamp(0.9rem, 2vw, 1em);
 }
 
 .cta-button {
@@ -478,6 +400,7 @@ body {
   margin-top: 20px;
   display: inline-block;
   transition: background-color 0.3s, transform 0.3s;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .cta-button:hover {
@@ -494,22 +417,18 @@ body {
 
 #city-input {
   padding: 15px;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   margin-right: 10px;
   border: 2px solid #f8d71c;
-  /* Yellow border */
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
   width: 100%;
-  /* Makes it responsive */
   max-width: 300px;
-  /* Limit max width */
 }
 
 #city-input:focus {
   border-color: #fff;
-  /* Change border on focus */
 }
 
 #weather-button {
@@ -517,7 +436,7 @@ body {
   background-color: #f8d71c;
   border: none;
   color: #000;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -526,58 +445,28 @@ body {
 #weather-button:hover {
   background-color: #e0c800;
   transform: scale(1.05);
-  /* Slight scale effect on hover */
 }
 
-/* Result Section */
 #weather-result {
   margin-top: 20px;
   color: #fff;
-  /* Ensure the text is readable */
-}
-
-/* Add responsive styles */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 80vh;
-    /* Reduced height for smaller screens */
-  }
-
-  .headline {
-    font-size: 2.5rem;
-    /* Smaller font size for mobile */
-  }
-
-  .content {
-    padding: 20px;
-    /* Padding adjustment for mobile */
-  }
-
-  .solutions-container {
-    flex-direction: column;
-    /* Stack cards on mobile */
-    align-items: center;
-    /* Center cards */
-  }
 }
 
 /* Feedback Form Section */
 .feedback-form {
   background-color: #222;
-  /* Darker background for the form */
   padding: 20px;
   border-radius: 8px;
   max-width: 600px;
+  width: 90%;
   margin: 50px auto;
-  /* Center the form */
   box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
-  /* Yellow shadow */
 }
 
 .feedback-form h2 {
   color: #ffcc00;
-  /* Yellow color for the heading */
   text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .feedback-form label {
@@ -592,57 +481,136 @@ body {
   width: 100%;
   padding: 10px;
   border: 1px solid #ffcc00;
-  /* Yellow border */
   border-radius: 4px;
   background-color: #444;
-  /* Darker input background */
   color: #f1f1f1;
-  /* Light text color for inputs */
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .feedback-form input[type="text"]:focus,
 .feedback-form input[type="email"]:focus,
 .feedback-form textarea:focus {
   border-color: #ffcc00;
-  /* Highlight border on focus */
   outline: none;
-  /* Remove outline */
 }
 
 .feedback-form button {
   background-color: #ffcc00;
-  /* Yellow button */
   color: #000;
-  /* Black text on button */
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   margin-top: 15px;
   transition: background-color 0.3s;
 }
 
 .feedback-form button:hover {
   background-color: #f1f100;
-  /* Lighter yellow on hover */
 }
 
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 60vh;
-    /* Further reduced height */
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px;
   }
 
-  .headline {
-    font-size: 2rem;
-    /* Even smaller font size for mobile */
+  .nav-links {
+    display: none;
+  }
+
+  /* Add a hamburger menu for mobile */
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .menu-toggle:hover {
+    color: #f8d71c;
+  }
+
+  /* Style for mobile menu when active */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+  }
+
+  .nav-links.active li {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 80vh;
+  }
+
+  .content {
+    padding: 0 10px;
+  }
+
+  .statistics {
+    flex-direction: column;
+    align-items: center;
   }
 
   .statistic {
     width: 100%;
-    /* Full width on small screens */
+    max-width: 300px;
+  }
+
+  .solutions-container,
+  .help-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .solution-card,
+  .help-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  #map,
+  .nasa-tool-frame,
+  .nasa-map-frame {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 60vh;
+  }
+
+  #cta-button,
+  .cea-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .problem-list li {
+    flex-basis: 100%;
+  }
+
+  #city-input,
+  #weather-button {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .feedback-form {
+    width: 95%;
   }
 }
 
@@ -651,27 +619,86 @@ body {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
 
 @keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
-
   40% {
     transform: translateY(-10px);
   }
-
   60% {
     transform: translateY(-5px);
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .content .headline,
+  .section-heading,
+  .solutions-heading,
+  .help-heading {
+    color: #fff;
+    text-shadow: none;
+  }
+
+  #cta-button,
+  .cea-button,
+  .cta-button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+
+  .statistic,
+  .solution-card,
+  .help-card {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .hero-section,
+  .navbar,
+  #cta-button,
+  .cea-button,
+  .cta-button,
+  #map,
+  .nasa-tool-frame,
+  .nasa-map-frame,
+  .feedback-form {
+    display: none;
+  }
+
+  .content,
+  .problem-section,
+  .solutions-section,
+  .help-section {
+    page-break-inside: avoid;
   }
 }
