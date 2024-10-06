@@ -7,10 +7,13 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #121212;
+  /* Dark background */
+  color: #e0e0e0;
+  /* Light text color */
   scroll-behavior: smooth;
   line-height: 1.6;
+  /* Improve readability */
 }
 
 /* Hero Section */
@@ -41,8 +44,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Increase transparency */
-  backdrop-filter: blur(0.8px); /* Adding blur to make text stand out */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Increase transparency */
+  backdrop-filter: blur(0.8px);
+  /* Adding blur to make text stand out */
   z-index: 1;
 }
 
@@ -58,7 +63,8 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   color: #f8d71c;
-  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7); /* Stronger shadow for impact */
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+  /* Stronger shadow for impact */
 }
 
 #cta-button {
@@ -69,15 +75,18 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  /* Slightly stronger shadow */
   transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s;
-  opacity: 0.9; /* Slight transparency */
+  opacity: 0.9;
+  /* Slight transparency */
 }
 
 #cta-button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #00c6ff, #28a745);
-  opacity: 1; /* Fully opaque on hover */
+  opacity: 1;
+  /* Fully opaque on hover */
 }
 
 .scroll-down {
@@ -107,16 +116,18 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  overflow: hidden;
-  flex-wrap: nowrap;
-  transition: top 0.3s ease-in-out; /* Smooth hide/show transition */
+  transition: top 0.3s ease-in-out;
+  /* Smooth hide/show transition */
 }
 
 /* Ensure links don't exceed available space */
 .navbar a {
-  flex: 1; /* Allow links to grow and fill space */
-  text-align: center; /* Center-align text */
+  flex: 1;
+  /* Allow links to grow and fill space */
+  text-align: center;
+  /* Center-align text */
 }
+
 .logo a {
   color: #f8d71c;
   text-decoration: none;
@@ -149,30 +160,85 @@ body {
 
 /* Problem Section */
 .problem-section {
-  padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent background */
-  backdrop-filter: blur(8px); /* Blur effect */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Slightly transparent black background */
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
 }
 
-.problem-section h2 {
-  font-size: 2.8rem;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section-heading {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.section-description {
+  font-size: 1.2em;
   margin-bottom: 30px;
-  color: #f8d71c;
-  text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .problem-list {
-  list-style: none;
-  text-align: center;
-  margin-bottom: 50px;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .problem-list li {
-  font-size: 1.3rem;
-  margin: 15px 0;
+  margin: 10px 0;
+  font-size: 1.2em;
+  flex: 1 1 200px;
+  padding: 10px 15px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.problem-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.statistic {
+  text-align: center;
+  margin-bottom: 20px;
+  flex: 1 1 200px;
+  background-color: #2b2b2b;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.statistic:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.stat-value {
+  font-size: 1.8em;
+  color: #28a745;
+  /* Green */
+  margin-top: 10px;
+}
+
+
+/* Statistics Section */
 .statistics {
   display: flex;
   justify-content: space-around;
@@ -185,7 +251,8 @@ body {
   border-radius: 10px;
   margin: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Add shadow */
 }
 
 .statistic h3 {
@@ -200,61 +267,79 @@ body {
 
 /* Solutions Section */
 .solutions-section {
-  padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #1f1f1f;
 }
 
 .solutions-heading {
-  font-size: 2.8rem;
-  color: #f8d71c;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-size: 2.5em;
+  color: #ffcc00;
+  margin-bottom: 20px;
 }
 
 .solutions-intro {
-  text-align: center;
-  margin-bottom: 50px;
+  font-size: 1.2em;
+  color: #e0e0e0;
+  margin-bottom: 40px;
 }
 
 .solutions-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 30px; /* Increase gap between solution cards */
+  justify-content: center;
+  gap: 20px;
 }
 
 .solution-card {
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 15px;
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  /* Increased width for better readability */
+  text-align: left;
   overflow: hidden;
-  width: 320px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .solution-card:hover {
-  transform: translateY(-10px); /* Lift on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .solution-image {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: 350px;
+  border-bottom: 4px solid #ffcc00;
 }
 
 .solution-title {
-  color: #f8d71c;
-  padding: 20px;
-  font-size: 1.5rem;
-  text-align: center;
+  color: #ffcc00;
+  margin: 10px;
 }
 
 .solution-description {
-  padding: 0 20px 30px;
-  text-align: center;
+  margin: 10px;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+/* CTA Button in Solutions Section */
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 /* Map Section */
@@ -292,12 +377,89 @@ body {
 .nasa-link:hover {
   text-decoration: underline;
 }
+
 .nasa-tool-frame,
 .nasa-map-frame {
   width: 100%;
   height: 800px;
   border: none;
   margin: 10px 0;
+}
+
+/* How You Can Help Section */
+.help-section {
+  padding: 60px 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+.help-heading {
+  font-size: 2.5em;
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.help-description {
+  font-size: 1.2em;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.help-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.help-card {
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.help-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.help-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.help-title {
+  color: #ffcc00;
+  margin: 10px;
+}
+
+.help-text {
+  margin: 10px;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 /* Weather Section */
@@ -311,153 +473,182 @@ body {
   padding: 15px;
   font-size: 1.1rem;
   margin-right: 10px;
-  border-radius: 8px;
   border: 2px solid #f8d71c;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  /* Yellow border */
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  /* Makes it responsive */
+  max-width: 300px;
+  /* Limit max width */
+}
+
+#city-input:focus {
+  border-color: #fff;
+  /* Change border on focus */
 }
 
 #weather-button {
-  padding: 12px 25px;
+  padding: 15px 30px;
   background-color: #f8d71c;
   border: none;
   color: #000;
   font-size: 1.1rem;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #weather-button:hover {
-  background-color: #e6c121; /* Slightly darker shade on hover */
+  background-color: #e0c800;
+  transform: scale(1.05);
+  /* Slight scale effect on hover */
 }
 
-#weather-container {
+/* Result Section */
+#weather-result {
   margin-top: 20px;
+  color: #fff;
+  /* Ensure the text is readable */
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 80vh;
+    /* Reduced height for smaller screens */
+  }
+
+  .headline {
+    font-size: 2.5rem;
+    /* Smaller font size for mobile */
+  }
+
+  .content {
+    padding: 20px;
+    /* Padding adjustment for mobile */
+  }
+
+  .solutions-container {
+    flex-direction: column;
+    /* Stack cards on mobile */
+    align-items: center;
+    /* Center cards */
+  }
 }
 
 /* Feedback Form Section */
 .feedback-form {
-  padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #222;
+  /* Darker background for the form */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 50px auto;
+  /* Center the form */
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+  /* Yellow shadow */
+}
+
+.feedback-form h2 {
+  color: #ffcc00;
+  /* Yellow color for the heading */
   text-align: center;
 }
 
-#form {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-label {
+.feedback-form label {
   display: block;
-  margin: 10px 0 5px;
-  color: #f8d71c;
+  margin: 15px 0 5px;
+  font-weight: bold;
 }
 
-input,
-textarea {
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #f8d71c;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  border: 1px solid #ffcc00;
+  /* Yellow border */
+  border-radius: 4px;
+  background-color: #444;
+  /* Darker input background */
+  color: #f1f1f1;
+  /* Light text color for inputs */
 }
 
-button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #f8d71c;
-  border: none;
+.feedback-form input[type="text"]:focus,
+.feedback-form input[type="email"]:focus,
+.feedback-form textarea:focus {
+  border-color: #ffcc00;
+  /* Highlight border on focus */
+  outline: none;
+  /* Remove outline */
+}
+
+.feedback-form button {
+  background-color: #ffcc00;
+  /* Yellow button */
   color: #000;
-  font-size: 1.1rem;
-  border-radius: 8px;
+  /* Black text on button */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #e6c121;
+.feedback-form button:hover {
+  background-color: #f1f100;
+  /* Lighter yellow on hover */
 }
 
-/* Footer */
-footer {
-  background-color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  padding: 15px 0;
-  color: #f8d71c;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 60vh;
+    /* Further reduced height */
+  }
+
+  .headline {
+    font-size: 2rem;
+    /* Even smaller font size for mobile */
+  }
+
+  .statistic {
+    width: 100%;
+    /* Full width on small screens */
+  }
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
   }
-  to {
+
+  100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-10px);
   }
+
   60% {
     transform: translateY(-5px);
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 70vh; /* Adjust hero section height for mobile */
-  }
-  
-  .content .headline {
-    font-size: 2.5rem; /* Adjust font size */
-  }
-  
-  .navbar {
-    padding: 10px;
-    flex-wrap:wrap; /* Ensures items stay in a single line */
-    justify-content: space-between; /* Distributes space between logo and links */
-  }
-
-  .navbar a {
-    font-size: 0.9rem; /* Smaller font size for mobile */
-    padding: 5px 10px; /* Adjust padding to fit small screens */
-  }
-
-  .nav-links {
-    flex-direction: auto ; /* Keep links in a row */
-    gap: 10px; /* Add a small gap between links */
-  }
-  
-  .logo a {
-    font-size: 1.4rem; /* Reduce logo size */
-  }
-  .nav-links li {
-    margin: 10px 0;
-  }
-  
-  .solution-card {
-    width: 90%; /* Full width on mobile */
-  }
-  
-  .statistics {
-    flex-direction: column; /* Stack statistics vertically */
-  }
-  
-  #map {
-    height: 300px; /* Adjust map height for mobile */
   }
 }

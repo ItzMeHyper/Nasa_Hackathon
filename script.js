@@ -3,12 +3,18 @@ const apiKey = 'hPc6uHMELDxnbhOMEY6z1lNRobMIAefbr9b5u0yZ'; // Replace with your 
 const apodContainer = document.getElementById('apod-container');
 
 async function fetchAPOD() {
+  if (!apiKey) {
+    console.error('API key is missing');
+    return;
+  }
+
   try {
     const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
     const data = await response.json();
     displayAPOD(data);
   } catch (error) {
     console.error('Error fetching APOD:', error);
+    apodContainer.innerHTML = '<p>Failed to fetch APOD. Please try again later.</p>';
   }
 }
 
@@ -29,6 +35,11 @@ const weatherContainer = document.getElementById('weather-container');
 const defaultCity = 'London'; // You can change this to any city
 
 async function fetchWeather(city) {
+  if (!weatherApiKey) {
+    console.error('Weather API key is missing');
+    return;
+  }
+
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`);
     const data = await response.json();
@@ -67,6 +78,7 @@ document.getElementById('form').addEventListener('submit', function (event) {
   const feedbackMessage = document.createElement('p');
   feedbackMessage.innerText = 'Thank you for your feedback!';
   feedbackMessage.style.color = '#f8d71c';
+  feedbackMessage.style.fontWeight = 'bold'; // Make it more distinct
   this.appendChild(feedbackMessage);
 
   setTimeout(() => {

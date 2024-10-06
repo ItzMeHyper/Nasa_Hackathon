@@ -1,0 +1,11 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    background:  black no-repeat center center;
+    align-items: center;
+    text-align: center;
+}
+
+#board {
+    background: url("colorful.jpg") no-repeat center center;
+    align-items: center;
+}
