@@ -827,12 +827,18 @@
         .bindPopup("<b>Welcome to the Climate Map!</b><br>You are here.")
         .openPopup();
 
-      function scrollToNext(goalId) {
-        const target = document.getElementById(goalId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+    function scrollToNext(goalId) {
+      const target = document.getElementById(goalId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
       }
-    </script>
-  </body>
+    }
+  </script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f84f916a539f455b894761382efca5c7"}'>S
+  </script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+
 </html>
