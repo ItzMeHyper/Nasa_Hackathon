@@ -48,21 +48,23 @@ function displayWeather(data) {
   `;
 }
 
+const nav = document.querySelector(".nav"),
+      navOpenBtn = document.querySelector(".navOpenBtn"),
+      navCloseBtn = document.querySelector(".navCloseBtn");
+
+navOpenBtn.addEventListener("click", () => {
+    nav.classList.add("openNav");
+});
+
+navCloseBtn.addEventListener("click", () => {
+    nav.classList.remove("openNav");
+});
 
 function toggleDropdown() {
-  const dropdown = document.getElementById('gameDropdown');
-  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    dropdownContent.classList.toggle("show");
 }
 
-// Close dropdown if clicked outside
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-      const dropdowns = document.getElementsByClassName("dropdown-content");
-      for (let i = 0; i < dropdowns.length; i++) {
-          dropdowns[i].style.display = "none";
-      }
-  }
-}
+
 
 // Smooth scrolling for the call-to-action button
 document.getElementById("cta-button").addEventListener("click", function () {
