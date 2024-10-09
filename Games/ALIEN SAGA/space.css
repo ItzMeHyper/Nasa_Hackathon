@@ -1,11 +1,38 @@
 body {
-    font-family:'Courier New', Courier, monospace;
-    background:  black no-repeat center center;
+    font-family: 'Courier New', Courier, monospace;
+    background: black no-repeat center center;
     align-items: center;
     text-align: center;
 }
 
 #board {
     background: url("colorful.jpg") no-repeat center center;
-    align-items: center;
+}
+
+#controls {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: lightgray;
+}
+
+#reset {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -1,4 +1,3 @@
-//board
 let tileSize = 32;
 let rows = 16;
 let columns = 16;
@@ -8,7 +7,7 @@ let boardWidth = tileSize * columns; // 32 * 16
 let boardHeight = tileSize * rows; // 32 * 16
 let context;
 
-//ship
+// Ship
 let shipWidth = tileSize * 2;
 let shipHeight = tileSize;
 let shipX = tileSize * columns / 2 - tileSize;
@@ -19,12 +18,12 @@ let ship = {
     y: shipY,
     width: shipWidth,
     height: shipHeight
-}
+};
 
 let shipImg;
-let shipVelocityX = tileSize; //ship moving speed
+let shipVelocityX = tileSize; // Ship moving speed
 
-//aliens
+// Aliens
 let alienArray = [];
 let alienWidth = tileSize * 2;
 let alienHeight = tileSize;
@@ -34,12 +33,12 @@ let alienImg;
 
 let alienRows = 2;
 let alienColumns = 3;
-let alienCount = 0; //number of aliens to defeat
-let alienVelocityX = 3; //alien moving speed
+let alienCount = 0; // Number of aliens to defeat
+let alienVelocityX = 3; // Alien moving speed
 
-//bullets
+// Bullets
 let bulletArray = [];
-let bulletVelocityY = -10; //bullet moving speed
+let bulletVelocityY = -10; // Bullet moving speed
 
 let score = 0;
 let gameOver = false;
@@ -56,7 +55,7 @@ window.onload = function () {
     board = document.getElementById("board");
     board.width = boardWidth;
     board.height = boardHeight;
-    context = board.getContext("2d"); //used for drawing on the board
+    context = board.getContext("2d"); // Used for drawing on the board
 
     // Load images
     shipImg = new Image();
@@ -73,16 +72,34 @@ window.onload = function () {
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
 
-// Create reset button
-const resetButton = document.createElement("button");
-resetButton.innerText = "Reset Game";
-resetButton.style.position = "center";
-resetButton.style.top = `${boardHeight / 2 + 10}px`; // Adjust position below the Game Over text
-resetButton.style.left = `${boardWidth / 2 - 50}px`; // Center it horizontally
-resetButton.style.display = "none"; // Hide initially
-resetButton.onclick = resetGame;
-document.body.appendChild(resetButton);
+    // Add touch event listeners for mobile controls
+    board.addEventListener("touchstart", handleTouchStart);
+    board.addEventListener("touchmove", handleTouchMove);
+    board.addEventListener("touchend", handleTouchEnd);
 
+    // Button event listeners
+    document.getElementById("left").addEventListener("click", () => {
+        if (gameOver) return;
+        if (ship.x - shipVelocityX >= 0) {
+            ship.x -= shipVelocityX; // Move left
+        }
+    });
+
+    document.getElementById("right").addEventListener("click", () => {
+        if (gameOver) return;
+        if (ship.x + shipVelocityX + ship.width <= board.width) {
+            ship.x += shipVelocityX; // Move right
+        }
+    });
+
+    document.getElementById("shoot").addEventListener("click", () => {
+        if (!gameOver) {
+            shoot({ code: "Space" }); // Simulate shooting
+        }
+    });
+
+    // Reset button event listener
+    document.getElementById("reset").addEventListener("click", resetGame);
 }
 
 function update() {
@@ -107,7 +124,7 @@ function update() {
         context.fillText("SCORE : " + score, boardWidth / 4 + 20, boardHeight / 2 + 40);
 
         // Show reset button
-        document.querySelector("button").style.display = "block";
+        document.getElementById("reset").style.display = "block";
 
         return; // Stop further updates
     }
@@ -209,7 +226,7 @@ function createAliens() {
                 width: alienWidth,
                 height: alienHeight,
                 alive: true
-            }
+            };
             alienArray.push(alien);
         }
     }
@@ -229,7 +246,7 @@ function shoot(e) {
             width: tileSize / 8,
             height: tileSize / 2,
             used: false
-        }
+        };
         playSound();
         bulletArray.push(bullet);
     }
@@ -254,8 +271,35 @@ function resetGame() {
     ship.x = shipX; // Reset ship position
 
     // Hide the reset button
-    document.querySelector("button").style.display = "none";
+    document.getElementById("reset").style.display = "none";
 
     createAliens();
     requestAnimationFrame(update);
+}
+
+// Touch control functions
+let touchStartX;
+let touchEndX;
+
+function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+}
+
+function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX;
+
+    if (gameOver) return;
+
+    if (touchEndX < touchStartX && ship.x - shipVelocityX >= 0) {
+        ship.x -= shipVelocityX; // Move left
+    } else if (touchEndX > touchStartX && ship.x + shipVelocityX + ship.width <= board.width) {
+        ship.x += shipVelocityX; // Move right
+    }
+
+    touchStartX = touchEndX; // Update start position
+}
+
+function handleTouchEnd(event) {
+    if (gameOver) return;
+    shoot({ code: "Space" }); // Simulate shooting
 }

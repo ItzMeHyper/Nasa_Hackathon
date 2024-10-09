@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport", content="width=device-width, initial-scale=1.0">
-        <title>ALIEN SAGA</title>
-        <link rel="stylesheet" href="space.css">
-        <script src="space.js"></script>
-    </head>
-
-    <body>
-        <h1>Space Invaders</h1>
-        <canvas id="board"></canvas>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALIEN SAGA</title>
+    <link rel="stylesheet" href="space.css">
+    <script src="space.js" defer></script>
+</head>
+<body>
+    <h1>Space Invaders</h1>
+    <canvas id="board"></canvas>
+    <div id="controls">
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="shoot">Shoot</button>
+    </div>
+    <button id="reset" style="display: none;">Reset Game</button>
+</body>
 </html>

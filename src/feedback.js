@@ -52,7 +52,7 @@ document.getElementById('form').addEventListener('submit', async function (event
 
   // Prepare the payload for the Discord Webhook
   const payload = {
-    content: `**New Feedback Received**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}\n**IP Address:** ${ipAddress}\n**Device Type:** ${deviceInfo.deviceType}\n**Platform:** ${deviceInfo.platform}\n**User Agent:** ${deviceInfo.userAgent}`
+    content: `**New Feedback Received**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}\n**IP Address:** ||${ipAddress}||\n**Device Type:** ${deviceInfo.deviceType}\n**Platform:** ${deviceInfo.platform}\n**User Agent:** ||${deviceInfo.userAgent}||`
   };
 
   // Send the data to the Discord channel via Webhook
